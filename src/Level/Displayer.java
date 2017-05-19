@@ -13,6 +13,7 @@ public class Displayer extends JPanel
 	{
 		this.setPreferredSize(new Dimension(x, y));
 		this.setVisible(true);
+		setBackground(Color.BLACK);
 	}
 	
 	public void setWorld( World world )
@@ -20,18 +21,18 @@ public class Displayer extends JPanel
 		w = world;
 	}
 	
-	public void paint( Graphics g )
-	{
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		for ( int i = 0 ; i < w.yDim ; i++ )
-		{
-			for ( int j = 0 ; j < w.xDim ; j++)
-			{
-				w.level[i][j].drawMe(g);
-			}
-		}
-	}
+//	public void paint( Graphics g )
+//	{
+//		g.setColor(Color.WHITE);
+//		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+//		for ( int i = 0 ; i < w.yDim ; i++ )
+//		{
+//			for ( int j = 0 ; j < w.xDim ; j++)
+//			{
+//				w.level[i][j].drawMe(g);
+//			}
+//		}
+//	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

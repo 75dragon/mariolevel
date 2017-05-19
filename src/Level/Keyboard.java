@@ -13,21 +13,7 @@ public class Keyboard implements KeyListener
 	@Override
 	public void keyPressed(KeyEvent arg0)
 	{
-		switch ( arg0.getKeyCode() )
-        {
-            case KeyEvent.VK_LEFT:
-                world.changeDirections(1);
-                break;
-            case KeyEvent.VK_UP:
-                world.changeDirections(2);
-                break;
-            case KeyEvent.VK_RIGHT:
-                world.changeDirections(3);
-                break;
-            case KeyEvent.VK_DOWN:
-                world.changeDirections(4);
-                break;
-        }
+
 	}
 
 	@Override

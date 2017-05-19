@@ -12,6 +12,7 @@ public class World implements ActionListener
 	Player player;
 	private Physics physics;
 	private final int delay = 50;
+	private int yVel = 0;
 	
 	Tile[][] level;
 	int xDim;
@@ -21,7 +22,7 @@ public class World implements ActionListener
 	public World(int x, int y, int tileDimentions, Displayer displayer, Player player, Physics physics)
 	{
 		this.displayer = displayer;
-		displayer.acceptWorld(this);
+		displayer.setWorld(this);
 		this.player = player;
 		this.physics = physics;
 		time = new Timer(delay, this);
@@ -51,10 +52,8 @@ public class World implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		int newX = player.getX();
-		int newY = player.getY() + physics.gravity;
-		System.out.println(player.getY());
-		player.setPosition(newX, newY);
+		player.setPosition(player.getX(), player.getY() + yVel);
+		yVel += physics.gravity;
 		displayer.repaint();
 		
 	}

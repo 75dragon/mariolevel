@@ -4,10 +4,11 @@ import java.awt.Graphics;
 
 public class Player {
 	private int health;
-	int xPos = 20, yPos = 20, width = 20;
+	int xPos = 20, yPos = 20, width = 20, yVel;
 	
 	public Player() {
 		health = 1;
+		yVel = 0;
 	}
 	
 	public void drawPlayer(Graphics g) {
@@ -26,6 +27,10 @@ public class Player {
 	
 	public int getY() {
 		return yPos;
+	}
+	
+	public int getYVel() {
+		return yVel;
 	}
 	
 }

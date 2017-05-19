@@ -11,5 +11,8 @@ public class Frame extends JFrame
 		this.setVisible(true);
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		setTitle("MMMARIO");
+		setLocation(200,200);
+		setResizable(false);
 	}
 }
