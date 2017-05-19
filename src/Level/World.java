@@ -11,7 +11,24 @@ public class World
 	{
 		xDim = x;
 		yDim = y;
-		this.tileDimentions = tileDimentions; 
+		this.tileDimentions = tileDimentions;
+		level = new Tile[xDim][yDim];
+	}
+	
+	public void createBaseLevel()
+	{
+		for ( int i = 0; i < xDim; i++ )
+		{
+			for ( int j = 0; j < yDim; j++ )
+			{
+				level[i][j] = new Tile(i, j, 30, false);
+			}
+		}
+	}
+	
+	public Tile[][] getLevel()
+	{
+		return level;
 	}
 	
 	
