@@ -1,14 +1,32 @@
 package Level;
 
-public class World
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
+public class World implements ActionListener
 {
+	private Timer time;
+	private Displayer displayer;
+	Player player;
+	private Physics physics;
+	private final int delay = 50;
+	
 	Tile[][] level;
 	int xDim;
 	int yDim;
 	int tileDimentions;
 	
-	public World(int x, int y, int tileDimentions)
+	public World(int x, int y, int tileDimentions, Displayer displayer, Player player, Physics physics)
 	{
+		this.displayer = displayer;
+		displayer.acceptWorld(this);
+		this.player = player;
+		this.physics = physics;
+		time = new Timer(delay, this);
+		time.start();
+		
 		xDim = x;
 		yDim = y;
 		this.tileDimentions = tileDimentions;
@@ -29,6 +47,16 @@ public class World
 	public Tile[][] getLevel()
 	{
 		return level;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		int newX = player.getX();
+		int newY = player.getY() + physics.gravity;
+		System.out.println(player.getY());
+		player.setPosition(newX, newY);
+		displayer.repaint();
+		
 	}
 	
 	

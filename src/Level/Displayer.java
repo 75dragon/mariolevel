@@ -32,4 +32,10 @@ public class Displayer extends JPanel
 			}
 		}
 	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		w.player.drawPlayer(g);
+	}
+	
 }
