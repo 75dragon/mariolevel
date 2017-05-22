@@ -11,15 +11,31 @@ public class Keyboard implements KeyListener
 		this.world = world;
 	}
 	@Override
-	public void keyPressed(KeyEvent arg0)
-	{
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_SPACE) {
+			world.player.jump();
+		}
+		
+		if(key == KeyEvent.VK_RIGHT) {
+			world.player.moveRight();
+		}
+		
+		if(key == KeyEvent.VK_LEFT) {
+			world.player.moveLeft();
+		}
 
+		
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0)
+	public void keyReleased(KeyEvent e)
 	{
-		// TODO Auto-generated method stub
+		int key = e.getKeyCode();
+		if( key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_LEFT ) {
+			world.player.setXVel(0);
+		}
+		
 		
 	}
 

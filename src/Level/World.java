@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import characters.Player;
+
 public class World implements ActionListener
 {
 	private Timer time;
@@ -52,8 +54,16 @@ public class World implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		player.setPosition(player.getX(), player.getY() + yVel);
-		yVel += physics.gravity;
+		if(player.getY() <= 350) {
+			player.setYVel( player.getYVel() + physics.gravity );
+			
+//			player.setPosition(player.getX(), player.getY() + yVel);
+//			yVel += physics.gravity;
+		}
+		else {
+			player.setYVel(0);
+		}
+		player.updatePosition();
 		displayer.repaint();
 		
 	}
