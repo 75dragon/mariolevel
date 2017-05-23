@@ -1,17 +1,36 @@
 package characters;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Player extends Characters {
-	
-	public Player(int xPos, int yPos, int size, int health) {
+import Level.Physics;
+
+public class Player extends Characters
+{
+
+	Physics phys;
+
+	public Player(int xPos, int yPos, int size, int health, Physics phy)
+	{
 		super(xPos, yPos, size, health);
 		health = 1;
 		jumpVel = -20;
+		phys = phy;
 	}
-	
-	public void drawPlayer(Graphics g) {
+
+	public void drawPlayer(Graphics g)
+	{
 		g.setColor(Color.YELLOW);
 		g.fillRect(xPos, yPos, size, size);
 	}
+
+	public void jump()
+	{
+		// if on ground
+		if (yPos == 350)
+		{
+			yVel += jumpVel;
+		}
+	}
+
 }

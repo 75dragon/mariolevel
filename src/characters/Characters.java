@@ -38,9 +38,23 @@ public abstract class Characters {
 		yPos = newY;
 	}
 	
-	public void updatePosition() {		
+	public void updatePosition() {
 		xPos += xVel;
 		yPos += yVel;
+		if ( yPos > 350 )
+		{
+			yPos = 350;
+			yVel = 0;
+		}
+		applyGravity();
+	}
+	
+	public void applyGravity()
+	{
+		if (yPos < 350)
+		{
+			yVel += 2;
+		}
 	}
 	
 	public void setXVel(int xVel) {
