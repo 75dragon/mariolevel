@@ -13,8 +13,6 @@ public class World
 	private Displayer displayer;
 	Player player;
 	private final int delay = 50;
-	private final int groundLevel = 350;
-	private int yVel = 0;
 
 	Tile[][] level;
 	int xDim;
@@ -35,17 +33,6 @@ public class World
 		level = new Tile[xDim][yDim];
 	}
 
-	public void createBaseLevel()
-	{
-		for (int i = 0; i < xDim; i++)
-		{
-			for (int j = 0; j < yDim; j++)
-			{
-				level[i][j] = new Tile(i, j, 30, false);
-			}
-		}
-	}
-
 	public Tile[][] getLevel()
 	{
 		return level;
@@ -59,7 +46,7 @@ public class World
 	public void gameStart()
 	{
 
-		time = new Timer(50, new ActionListener()
+		time = new Timer(delay, new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent arg0)
