@@ -1,19 +1,24 @@
 package Level;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Displayer extends JPanel
 {
 	World w;
+	JLabel gameOverLabel = new JLabel();
+	
 	public Displayer(int x, int y) 
 	{
 		this.setPreferredSize(new Dimension(x, y));
 		this.setVisible(true);
-		setBackground(Color.BLACK);
+		setBackground(Color.WHITE);
 	}
 	
 	public void setWorld( World world )
@@ -24,6 +29,14 @@ public class Displayer extends JPanel
 	public void drawCharacters(Graphics g) {
 		w.player.drawPlayer(g);
 		w.goomba.drawGoomba(g);
+	}
+	
+	public void showGameOver() {
+		gameOverLabel.setText("asdfasdf");
+		gameOverLabel.setForeground(Color.RED);
+		gameOverLabel.setFont( new Font("", Font.BOLD, 50) );
+		add(gameOverLabel);
+		repaint();
 	}
 	
 	
@@ -41,8 +54,8 @@ public class Displayer extends JPanel
 //	}
 	
 	public void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			drawCharacters(g);
+		super.paintComponent(g);
+		drawCharacters(g);
 	}
 	
 }

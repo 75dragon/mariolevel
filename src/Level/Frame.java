@@ -9,7 +9,7 @@ public class Frame extends JFrame
 	public Frame()
 	{
 		this.setVisible(true);
-		this.setLayout(new BorderLayout());
+		//this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		setTitle("MMMARIO");
 		setLocation(200,200);

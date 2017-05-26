@@ -2,11 +2,9 @@ package Level;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.Timer;
 
-import characters.Characters;
 import characters.Goomba;
 import characters.Player;
 import characters.PlayerEnemyCollision;
@@ -59,7 +57,7 @@ public class World
 		time = new Timer(delay, new ActionListener()
 		{
 			@Override
-			public void actionPerformed(ActionEvent arg0)
+			public void actionPerformed(ActionEvent e)
 			{
 				collision.checkCollide();
 				if(player.getY() == 350) {
@@ -73,6 +71,7 @@ public class World
 	
 	public void gameOver() {
 		time.stop();
+		displayer.showGameOver();
 	}
 	
 	
