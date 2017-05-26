@@ -24,6 +24,15 @@ public class Keyboard implements KeyListener
 		if(key == KeyEvent.VK_LEFT) {
 			world.player.moveLeft();
 		}
+		
+		// For testing collison
+		if(key == KeyEvent.VK_UP) {
+			world.player.moveUp();
+		}
+		
+		if(key == KeyEvent.VK_DOWN) {
+			world.player.moveDown();
+		}
 
 		
 	}
@@ -32,8 +41,10 @@ public class Keyboard implements KeyListener
 	public void keyReleased(KeyEvent e)
 	{
 		int key = e.getKeyCode();
-		if( key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_LEFT ) {
+		if( key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_LEFT  ||
+			key == KeyEvent.VK_UP || key == KeyEvent.VK_DOWN) {
 			world.player.setXVel(0);
+			world.player.setYVel(0);
 		}
 		
 		

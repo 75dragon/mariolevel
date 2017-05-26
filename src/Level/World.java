@@ -5,28 +5,33 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import characters.Goomba;
 import characters.Player;
+import characters.PlayerEnemyCollision;
 
 public class World
 {
 	private Timer time;
 	private Displayer displayer;
-	Player player;
+	public Player player;
+	public Goomba goomba;
+	PlayerEnemyCollision collision;
 	private final int delay = 50;
-
 	Tile[][] level;
 	int xDim;
 	int yDim;
 	int tileDimentions;
 
-	public World(int x, int y, int tileDimentions, Displayer displayer, Physics physics)
+	public World(int x, int y, int tileDimentions, Displayer displayer, PlayerEnemyCollision collision)
 	{
 		this.displayer = displayer;
+		this.collision = collision;
 		displayer.setWorld(this);
-		this.player = new Player(20,20,20,1, physics);
+		collision.setWorld(this);
+		this.player = new Player(20,20);
+		goomba = new Goomba(200,350);
 		gameStart();
 		time.start();
-
 		xDim = x;
 		yDim = y;
 		this.tileDimentions = tileDimentions;
@@ -51,6 +56,7 @@ public class World
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
+				collision.checkCollide();
 				if(player.getY() == 350) {
 					player.setJumped(false);
 				}

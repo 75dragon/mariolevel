@@ -21,6 +21,12 @@ public class Displayer extends JPanel
 		w = world;
 	}
 	
+	public void drawCharacters(Graphics g) {
+		w.player.drawPlayer(g);
+		w.goomba.drawGoomba(g);
+	}
+	
+	
 //	public void paint( Graphics g )
 //	{
 //		g.setColor(Color.WHITE);
@@ -35,8 +41,8 @@ public class Displayer extends JPanel
 //	}
 	
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		w.player.drawPlayer(g);
+			super.paintComponent(g);
+			drawCharacters(g);
 	}
 	
 }

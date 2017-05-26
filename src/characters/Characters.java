@@ -1,21 +1,27 @@
 package characters;
 
 public abstract class Characters {
-	protected int health, xPos, yPos, size;
+	protected int health, xPos, yPos, width, height;
 	protected int xVel, yVel, jumpVel, xMovementVel;
 	protected boolean jumped = true;
+	public int yMovementVel = 1;
+								
 	
-	public Characters(int x, int y, int size, int health) {
+	public Characters(int x, int y) {
 		xPos = x;
 		yPos = y;
-		this.size = size;
-		this.health = health;
 		xVel = 0;
 		yVel = 0;
+		// any class that inherits from Characters must set
+		// health, jumpVel, xMovementVel and size variables
 	}
 	
 	public void setJumped(boolean j) {
 		jumped = j;
+	}
+	
+	public boolean getJumped() {
+		return jumped;
 	}
 
 	public void jump() {
@@ -24,6 +30,14 @@ public abstract class Characters {
 			jumped = true;
 			updatePosition();
 		}
+	}
+	
+	public void moveUp() {
+		setYVel(-1*yMovementVel);
+	}
+	
+	public void moveDown() {
+		setYVel(yMovementVel);
 	}
 	
 	public void moveRight() {
@@ -86,5 +100,50 @@ public abstract class Characters {
 	public int getY() {
 		return yPos;
 	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	
+	public int getX1() {
+		return getX();
+	}
+	
+	public int getX2() {
+		return getX() + width;
+	}
+	
+	public int getY1() {
+		return getY();
+	}
+	
+	public int getY2() {
+		return getY() + height;
+	}
+	
+	
+	
+	/*		(x1, y1)		(x2, y1)
+	 * 		-----------------
+	 * 		|				|
+	 *		|				| 		
+	 *		|				|
+	 * 		|				|	
+	 * 		-----------------
+	 * 		(x1, y2)		(x2, y2)
+	 */
+	
 	
 }
