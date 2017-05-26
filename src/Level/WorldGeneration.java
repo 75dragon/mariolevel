@@ -8,26 +8,40 @@ public class WorldGeneration
 	int xDim;
 	int yDim;
 	Random rand;
+	/**
+	 * the params are the x/y dimention.
+	 * we will store our array like Tile[x][y]. So make sure you
+	 * are accessing it like that!
+	 * @param x - minimum of a hundred please
+	 * @param y - minimum of ten please
+	 */
 	public WorldGeneration(int x, int y)
 	{
 		rand = new Random();
 		xDim = x;
 		yDim = y;
 		theWorld = new Tile[x][y];
+		basics();
+		addPits(5, 3);
+		addRamdomBlocks(x + y);
 	}
 	
+	/**
+	 * just build a very simple level, its all open, passable tiles until 
+	 * you reach the floor - on layer of tiles that represents the ground
+	 */
 	public void basics()
 	{
-		for (int i = 0; i < yDim; i++)
+		for (int yy = 0; yy < yDim; yy++)
 		{
-			for (int j = 0; j < xDim - 1; j++)
+			for (int xx = 0; xx < xDim - 1; xx++)
 			{
-				theWorld[i][j] = new Tile(i, j, 30, false);
+				theWorld[xx][yy] = new Tile(xx, yy, 30, false);
 			}
 		}
-		for (int j = 0; j < xDim; j++)
+		for (int xx = 0; xx < xDim; xx++)
 		{
-			theWorld[yDim - 1][j] = new Tile(yDim - 1, j, 30, true);
+			theWorld[xx][yDim - 1] = new Tile(xx, yDim - 1, 30, true);
 		}
 	}
 	
@@ -44,10 +58,10 @@ public class WorldGeneration
 		boolean check;
 		int hold;
 		int done = 0;
-		while( done < i)
+		while( done < i )
 		{
 			check = true;
-			hold = rand.nextInt(yDim - 15) + 10;
+			hold = rand.nextInt(xDim - 15) + 10;
 			for (int j = 0; j < done; j++)
 			{
 				if (Math.abs(hold - holdPits[j]) > width)
@@ -64,20 +78,27 @@ public class WorldGeneration
 		
 		for(int j = 0; j < i; j++ )
 		{
-			theWorld[yDim - 1][holdPits[j]] = new Tile(yDim - 1, j, 30, false);
-			theWorld[yDim - 1][holdPits[j + 1]] = new Tile(yDim - 1, j + 1, 30, false);
-			theWorld[yDim - 1][holdPits[j + 2]] = new Tile(yDim - 1, j + 2, 30, false);
-			theWorld[yDim - 1][holdPits[j + 3]] = new Tile(yDim - 1, j + 3, 30, false);
-			theWorld[yDim - 1][holdPits[j + 4]] = new Tile(yDim - 1, j + 4, 30, false);
+			for (int xx = holdPits[j]; xx - holdPits[j] < width; xx++ )
+			{
+				theWorld[holdPits[xx]][yDim - 1] = new Tile(xx, yDim - 1, 30, false);
+			}
 		}
 	}
 	
 	/**
-	 * @param x
-	 * @param y
+	 * just create some completely random block in the place
+	 * why not?
+	 * @param amount of blocks to place
 	 */
 	public void addRamdomBlocks(int amount)
 	{
-		
+		int holdx;
+		int holdy;
+		for( int i = 0; i < amount; i++ )
+		{
+			holdx = rand.nextInt(xDim - 15) + 10;
+			holdy = rand.nextInt(yDim);
+			theWorld[holdx][holdy] = new Tile( holdx, holdy, 30, true );
+		}
 	}
 }
