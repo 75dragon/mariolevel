@@ -51,7 +51,9 @@ public class World
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-
+				if(player.getY() == 350) {
+					player.setJumped(false);
+				}
 				player.updatePosition();
 				displayer.repaint();
 			}

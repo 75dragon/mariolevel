@@ -2,7 +2,8 @@ package characters;
 
 public abstract class Characters {
 	protected int health, xPos, yPos, size;
-	protected int xVel, yVel, jumpVel;
+	protected int xVel, yVel, jumpVel, xMovementVel;
+	protected boolean jumped = true;
 	
 	public Characters(int x, int y, int size, int health) {
 		xPos = x;
@@ -13,19 +14,24 @@ public abstract class Characters {
 		yVel = 0;
 	}
 	
+	public void setJumped(boolean j) {
+		jumped = j;
+	}
+
 	public void jump() {
-		if(yVel == 0) {
+		if (!jumped) {
 			setYVel(jumpVel);
+			jumped = true;
+			updatePosition();
 		}
-		updatePosition();
 	}
 	
 	public void moveRight() {
-		setXVel(5);
+		setXVel(xMovementVel);
 	}
 	
 	public void moveLeft() {
-		setXVel(-5);
+		setXVel(-1*xMovementVel);
 	}
 	
 	

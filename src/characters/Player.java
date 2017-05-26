@@ -16,21 +16,13 @@ public class Player extends Characters
 		health = 1;
 		jumpVel = -20;
 		phys = phy;
+		xMovementVel = 5;
 	}
 
 	public void drawPlayer(Graphics g)
 	{
 		g.setColor(Color.YELLOW);
 		g.fillRect(xPos, yPos, size, size);
-	}
-
-	public void jump()
-	{
-		// if on ground
-		if (yPos == 350)
-		{
-			yVel += jumpVel;
-		}
 	}
 
 }
