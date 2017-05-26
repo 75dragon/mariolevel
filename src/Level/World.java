@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import characters.Characters;
 import characters.Goomba;
 import characters.Player;
 import characters.PlayerEnemyCollision;
@@ -24,14 +25,15 @@ public class World
 	int tileDimentions;
 
 
+
 	public World(int x, int y, int tileDimentions, Displayer displayer, PlayerEnemyCollision collision)
 	{
 		this.displayer = displayer;
 		this.collision = collision;
-		displayer.setWorld(this);
-		collision.setWorld(this);
 		this.player = new Player(20,20);
 		goomba = new Goomba(200,350);
+		displayer.setWorld(this);
+		collision.setWorld(this);
 		gameStart();
 		time.start();
 		xDim = x;
@@ -39,6 +41,8 @@ public class World
 		this.tileDimentions = tileDimentions;
 		level = new Tile[xDim][yDim];
 	}
+	
+	
 
 	public Tile[][] getLevel()
 	{
@@ -52,7 +56,6 @@ public class World
 	 */
 	public void gameStart()
 	{
-
 		time = new Timer(delay, new ActionListener()
 		{
 			@Override
@@ -67,5 +70,11 @@ public class World
 			}
 		});
 	}
+	
+	public void gameOver() {
+		time.stop();
+	}
+	
+	
 
 }

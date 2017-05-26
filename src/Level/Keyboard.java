@@ -25,14 +25,14 @@ public class Keyboard implements KeyListener
 			world.player.moveLeft();
 		}
 		
-		// For testing collison
-		if(key == KeyEvent.VK_UP) {
-			world.player.moveUp();
-		}
-		
-		if(key == KeyEvent.VK_DOWN) {
-			world.player.moveDown();
-		}
+//		// For testing collison
+//		if(key == KeyEvent.VK_UP) {
+//			world.player.moveUp();
+//		}
+//		
+//		if(key == KeyEvent.VK_DOWN) {
+//			world.player.moveDown();
+//		}
 
 		
 	}

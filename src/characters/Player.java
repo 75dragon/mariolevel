@@ -36,5 +36,8 @@ public class Player extends Characters
 			g.setColor(Color.WHITE);
 		g.fillRect(xPos, yPos, width, height);
 	}
+	
+	
+	
 
 }

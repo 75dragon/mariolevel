@@ -22,19 +22,24 @@ public class PlayerEnemyCollision {
 		
 		if( playerX1 < goombaX2 && playerX2 > goombaX1 &&
 			playerY1 < goombaY2 && playerY2 > goombaY1	) {
-			world.player.setHealth(0);
+			world.gameOver();
 		}
-		else
-			world.player.setHealth(1);
-			
-		
-		
-		
-		
-		
-		
-		
 	}
+	
+	/*		(x1, y1)		(x2, y1)
+	 * 		-----------------
+	 * 		|				|
+	 *		|				| 		
+	 *		|				|
+	 * 		|				|	
+	 * 		-----------------
+	 * 		(x1, y2)		(x2, y2)
+	 */
+	
+	
+	
+	
+	
 	
 	
 	
