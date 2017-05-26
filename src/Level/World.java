@@ -2,6 +2,7 @@ package Level;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Timer;
 
@@ -21,6 +22,7 @@ public class World
 	int xDim;
 	int yDim;
 	int tileDimentions;
+
 
 	public World(int x, int y, int tileDimentions, Displayer displayer, PlayerEnemyCollision collision)
 	{
