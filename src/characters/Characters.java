@@ -4,7 +4,7 @@ public abstract class Characters {
 	protected int health, xPos, yPos, width, height;
 	protected int xVel, yVel, jumpVel, xMovementVel;
 	protected boolean jumped = true;
-	public int yMovementVel = 1;
+	public int yMovementVel = 5;
 								
 	
 	public Characters(int x, int y) {

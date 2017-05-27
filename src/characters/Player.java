@@ -8,6 +8,7 @@ import Level.Physics;
 public class Player extends Characters
 {
 	Physics phys;
+	int stompLaunchSpeed = -15;
 
 	public Player(int xPos, int yPos)
 	{
@@ -20,6 +21,12 @@ public class Player extends Characters
 		
 	}
 	
+	public void stomp() {
+		setYVel(stompLaunchSpeed);
+		updatePosition();
+	}
+	
+	// for testing player enemy collision
 //	public void updatePosition() {
 //		xPos += xVel;
 //		yPos += yVel;

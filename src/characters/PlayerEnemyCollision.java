@@ -20,9 +20,15 @@ public class PlayerEnemyCollision {
 		int goombaY1 = world.goomba.getY1();
 		int goombaY2 = world.goomba.getY2();
 		
-		if( playerX1 < goombaX2 && playerX2 > goombaX1 &&
+		// Top collide, for stomping
+		if( playerX2 > goombaX1 && playerY2 > goombaY1 &&
+			 playerY1 < goombaY1 && playerX1 < goombaX2) {
+			System.out.println("Collided with top");
+		}
+		else if( playerX1 < goombaX2 && playerX2 > goombaX1 &&
 			playerY1 < goombaY2 && playerY2 > goombaY1	) {
-			world.gameOver();
+			System.out.println("death");
+			//			world.showGameOver();
 		}
 	}
 	

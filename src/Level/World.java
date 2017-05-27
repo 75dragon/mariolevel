@@ -11,7 +11,7 @@ import characters.PlayerEnemyCollision;
 
 public class World
 {
-	private Timer time;
+	Timer time;
 	private Displayer displayer;
 	public Player player;
 	public Goomba goomba;
@@ -69,9 +69,9 @@ public class World
 		});
 	}
 	
-	public void gameOver() {
-		time.stop();
+	public void showGameOver() {
 		displayer.showGameOver();
+		time.stop();
 	}
 	
 	

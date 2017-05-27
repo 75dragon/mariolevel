@@ -18,7 +18,15 @@ public class Displayer extends JPanel
 	{
 		this.setPreferredSize(new Dimension(x, y));
 		this.setVisible(true);
-		setBackground(Color.WHITE);
+		setBackground(Color.BLACK);
+		initializeGameOverLabel();
+	}
+	
+	public void initializeGameOverLabel() {
+		gameOverLabel.setText("");
+		gameOverLabel.setForeground(Color.RED);
+		gameOverLabel.setFont( new Font("", Font.BOLD, 40) );
+		add(gameOverLabel);
 	}
 	
 	public void setWorld( World world )
@@ -27,15 +35,15 @@ public class Displayer extends JPanel
 	}
 	
 	public void drawCharacters(Graphics g) {
+		// should store characters in an ArrayList, then check
+		// if health != 0 before drawing, otherwise if health == 0
+		// don't draw
 		w.player.drawPlayer(g);
 		w.goomba.drawGoomba(g);
 	}
 	
 	public void showGameOver() {
-		gameOverLabel.setText("asdfasdf");
-		gameOverLabel.setForeground(Color.RED);
-		gameOverLabel.setFont( new Font("", Font.BOLD, 50) );
-		add(gameOverLabel);
+		gameOverLabel.setText("GAME OVER");
 		repaint();
 	}
 	
@@ -57,5 +65,4 @@ public class Displayer extends JPanel
 		super.paintComponent(g);
 		drawCharacters(g);
 	}
-	
 }
