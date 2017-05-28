@@ -1,7 +1,9 @@
-package Level;
+package control;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import Level.World;
 
 public class Keyboard implements KeyListener
 {

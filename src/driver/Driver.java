@@ -1,7 +1,12 @@
-package Level;
+package driver;
 
+import Level.Displayer;
+import Level.Frame;
+import Level.Physics;
+import Level.World;
 import characters.Player;
 import characters.PlayerEnemyCollision;
+import control.Keyboard;
 
 public class Driver
 {
