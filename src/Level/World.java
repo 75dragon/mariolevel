@@ -40,7 +40,8 @@ public class World
 		xDim = x;
 		yDim = y;
 		this.tileDimentions = tileDimentions;
-		level = new Tile[xDim][yDim];
+		WorldGeneration WG = new WorldGeneration(x, y);
+		level = WG.getWorld();
 	}
 	
 	// initializes arrayList, instantiates characters and places characters in arrayList

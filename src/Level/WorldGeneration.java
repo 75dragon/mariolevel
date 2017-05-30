@@ -24,6 +24,7 @@ public class WorldGeneration
 		basics();
 		addPits(5, 3);
 		addRamdomBlocks(x + y);
+		printWorld();
 	}
 	
 	/**
@@ -32,16 +33,16 @@ public class WorldGeneration
 	 */
 	public void basics()
 	{
-		for (int yy = 0; yy < yDim; yy++)
+		for (int yy = 0; yy < yDim - 1; yy++)
 		{
-			for (int xx = 0; xx < xDim - 1; xx++)
+			for (int xx = 0; xx < xDim; xx++)
 			{
-				theWorld[xx][yy] = new Tile(xx, yy, 30, false);
+				theWorld[xx][yy] = new Tile(xx, yy, 30, true);
 			}
 		}
 		for (int xx = 0; xx < xDim; xx++)
 		{
-			theWorld[xx][yDim - 1] = new Tile(xx, yDim - 1, 30, true);
+			theWorld[xx][yDim - 1] = new Tile(xx, yDim - 1, 30, false);
 		}
 	}
 	
@@ -64,7 +65,7 @@ public class WorldGeneration
 			hold = rand.nextInt(xDim - 15) + 10;
 			for (int j = 0; j < done; j++)
 			{
-				if (Math.abs(hold - holdPits[j]) > width)
+				if (Math.abs(hold - holdPits[j]) < width)
 				{
 					check = false;
 				}
@@ -80,7 +81,7 @@ public class WorldGeneration
 		{
 			for (int xx = holdPits[j]; xx - holdPits[j] < width; xx++ )
 			{
-				theWorld[holdPits[xx]][yDim - 1] = new Tile(xx, yDim - 1, 30, false);
+				theWorld[xx][yDim - 1] = new Tile(xx, yDim - 1, 30, true);
 			}
 		}
 	}
@@ -98,7 +99,31 @@ public class WorldGeneration
 		{
 			holdx = rand.nextInt(xDim - 15) + 10;
 			holdy = rand.nextInt(yDim);
-			theWorld[holdx][holdy] = new Tile( holdx, holdy, 30, true );
+			theWorld[holdx][holdy] = new Tile( holdx, holdy, 30, false);
 		}
+	}
+	
+	public void printWorld()
+	{
+		for (int yy = 0; yy < yDim; yy++)
+		{
+			for (int xx = 0; xx < xDim; xx++)
+			{
+				if (theWorld[xx][yy].passable)
+				{
+					System.out.print(" ");
+				}
+				else
+				{
+					System.out.print("#");
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	public Tile[][] getWorld()
+	{
+		return theWorld;
 	}
 }

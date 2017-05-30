@@ -1,7 +1,16 @@
-package Level;
+package driver;
 
+import Level.Displayer;
+import Level.Frame;
+import Level.Physics;
+import Level.World;
 import characters.Player;
+<<<<<<< HEAD:src/Level/Driver.java
 import characters.CharacterCollision;
+=======
+import characters.PlayerEnemyCollision;
+import control.Keyboard;
+>>>>>>> 776403f05bbed749259a4e44bddef00d3d68943c:src/driver/Driver.java
 
 public class Driver
 {
@@ -21,7 +30,7 @@ public class Driver
 		collision = new CharacterCollision();
 		// Items passed into constructor for world class are completely arbitrary,
 		// so that the program will compile
-		world = new World(1,1,1, display, collision);
+		world = new World(100,10,30, display, collision);
 		listener = new Keyboard(world);
 		frame.addKeyListener(listener);
 		frame.add(display);
