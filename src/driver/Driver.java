@@ -5,12 +5,10 @@ import Level.Frame;
 import Level.Physics;
 import Level.World;
 import characters.Player;
-<<<<<<< HEAD:src/Level/Driver.java
+
 import characters.CharacterCollision;
-=======
-import characters.PlayerEnemyCollision;
 import control.Keyboard;
->>>>>>> 776403f05bbed749259a4e44bddef00d3d68943c:src/driver/Driver.java
+
 
 public class Driver
 {

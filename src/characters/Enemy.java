@@ -28,4 +28,7 @@ public abstract class Enemy extends Characters {
 	public void changeDirection() {
 			xVel *= -1;
 	}
+	
+
+	
 }

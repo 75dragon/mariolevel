@@ -57,6 +57,12 @@ public class World
 		cList.add(redTurtle1);
 	}
 	
+	public void updateCharactersPoisition() {
+		for(int i = 0; i< cList.size(); i++) {
+			cList.get(i).updatePosition();
+		}
+	}
+	
 
 	public Tile[][] getLevel()
 	{
@@ -80,9 +86,7 @@ public class World
 				if(player.getY() == 350) {
 					player.setJumped(false);
 				}
-				player.updatePosition();
-				goomba1.updatePosition();
-				redTurtle1.updatePosition();
+				updateCharactersPoisition();
 				displayer.repaint();
 			}
 		});

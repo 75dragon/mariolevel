@@ -24,7 +24,7 @@ public class CharacterCollision {
 		
 		// Top collide, for enemy stomping
 		if( playerX2 > goomba1X1 && playerY2 > goomba1Y1 &&
-			playerY1 < goomba1Y1 && playerX1 < goomba1X2 && !world.goomba1.getTopHurt()) {
+			playerY1 < goomba1Y1 && playerX1 < goomba1X2 && world.goomba1.getJumped()) {
 			world.player.stomp(world.goomba1); 
 		}
 		// for all other collisions
@@ -61,6 +61,7 @@ public class CharacterCollision {
 			( goomba1X1 > redTurtle1X1 && goomba1X1 <= redTurtle1X2) ) {
 			world.goomba1.changeDirection();
 			world.redTurtle1.changeDirection();
+			
 		}
 	}
 }
