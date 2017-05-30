@@ -5,9 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import characters.Characters;
 
 public class Displayer extends JPanel
 {
@@ -38,8 +41,11 @@ public class Displayer extends JPanel
 		// should store characters in an ArrayList, then check
 		// if health != 0 before drawing, otherwise if health == 0
 		// don't draw
-		w.player.drawPlayer(g);
-		w.goomba.drawGoomba(g);
+		
+		ArrayList<Characters> cList = w.getCList();
+		for(int i = 0; i < cList.size(); i++) {
+			cList.get(i).draw(g);
+		}	
 	}
 	
 	public void showGameOver() {

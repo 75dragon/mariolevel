@@ -25,6 +25,8 @@ public class Keyboard implements KeyListener
 			world.player.moveLeft();
 		}
 		
+		// To do, add running for player
+		
 		// for testing player/enemy collision
 //		if(key == KeyEvent.VK_UP) {
 //			world.player.moveUp();

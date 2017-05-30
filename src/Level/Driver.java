@@ -1,7 +1,7 @@
 package Level;
 
 import characters.Player;
-import characters.PlayerEnemyCollision;
+import characters.CharacterCollision;
 
 public class Driver
 {
@@ -11,14 +11,14 @@ public class Driver
 	Player player;
 	Physics physics;
 	Keyboard listener;
-	PlayerEnemyCollision collision;
+	CharacterCollision collision;
 	
 	public Driver() {
 		frame = new Frame();
 		display = new Displayer(800,800);
 		//player = new Player(20,20,20,1);
 		physics = new Physics();
-		collision = new PlayerEnemyCollision();
+		collision = new CharacterCollision();
 		// Items passed into constructor for world class are completely arbitrary,
 		// so that the program will compile
 		world = new World(1,1,1, display, collision);

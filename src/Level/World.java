@@ -2,34 +2,37 @@ package Level;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import characters.Characters;
+import characters.Enemy;
 import characters.Goomba;
 import characters.Player;
-import characters.PlayerEnemyCollision;
+import characters.RedTurtle;
+import characters.CharacterCollision;
 
 public class World
 {
 	Timer time;
 	private Displayer displayer;
 	public Player player;
-	public Goomba goomba;
-	PlayerEnemyCollision collision;
+	public Enemy goomba1, redTurtle1;
+	CharacterCollision collision;
 	private final int delay = 50;
 	Tile[][] level;
 	int xDim;
 	int yDim;
 	int tileDimentions;
+	private ArrayList<Characters> cList;
 
 
-
-	public World(int x, int y, int tileDimentions, Displayer displayer, PlayerEnemyCollision collision)
+	public World(int x, int y, int tileDimentions, Displayer displayer, CharacterCollision collision)
 	{
 		this.displayer = displayer;
 		this.collision = collision;
-		this.player = new Player(20,20);
-		goomba = new Goomba(200,350);
+		initializeCharacters();
 		displayer.setWorld(this);
 		collision.setWorld(this);
 		gameStart();
@@ -40,6 +43,18 @@ public class World
 		level = new Tile[xDim][yDim];
 	}
 	
+	// initializes arrayList, instantiates characters and places characters in arrayList
+	public void initializeCharacters() {
+		cList = new ArrayList<>();
+		this.player = new Player(20,20);
+		goomba1 = new Goomba(100,350);
+		redTurtle1 = new RedTurtle(200,350);
+		goomba1.moveRight();
+		redTurtle1.moveLeft();
+		cList.add(player);
+		cList.add(goomba1);
+		cList.add(redTurtle1);
+	}
 	
 
 	public Tile[][] getLevel()
@@ -59,11 +74,14 @@ public class World
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				collision.checkCollide();
+				collision.checkPlayerEnemyCollide();
+				collision.checkEnemyEnemyCollision();
 				if(player.getY() == 350) {
 					player.setJumped(false);
 				}
 				player.updatePosition();
+				goomba1.updatePosition();
+				redTurtle1.updatePosition();
 				displayer.repaint();
 			}
 		});
@@ -72,6 +90,10 @@ public class World
 	public void showGameOver() {
 		displayer.showGameOver();
 		time.stop();
+	}
+	
+	public ArrayList<Characters> getCList() {
+		return cList;
 	}
 	
 	

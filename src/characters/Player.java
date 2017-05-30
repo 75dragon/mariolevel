@@ -8,25 +8,34 @@ import Level.Physics;
 public class Player extends Characters
 {
 	Physics phys;
-	int stompLaunchSpeed = -15;
+	int stompLaunchSpeed = -20;
+	int runSpeed = xMovementVel + 10;
 
 	public Player(int xPos, int yPos)
 	{
 		super(xPos, yPos);
 		health = 1;
-		jumpVel = -20;
+		jumpVel = -25;
 		xMovementVel = 5;
 		width = 20;
 		height = 20;
-		
 	}
 	
-	public void stomp() {
+	public void runRight() {
+		setXVel(runSpeed);
+	}
+	
+	public void runLeft() {
+		setXVel(-1*runSpeed);
+	}
+	
+	public void stomp(Enemy enemy) {
 		setYVel(stompLaunchSpeed);
+		enemy.setHealth(0);
 		updatePosition();
 	}
 	
-	// for testing player enemy collision
+	 //for testing player enemy collision
 //	public void updatePosition() {
 //		xPos += xVel;
 //		yPos += yVel;
@@ -35,7 +44,7 @@ public class Player extends Characters
 //	}
 	
 
-	public void drawPlayer(Graphics g)
+	public void draw(Graphics g)
 	{
 		if(health > 0)
 			g.setColor(Color.YELLOW);

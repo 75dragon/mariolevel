@@ -1,5 +1,7 @@
 package characters;
 
+import java.awt.Graphics;
+
 public abstract class Characters {
 	protected int health, xPos, yPos, width, height;
 	protected int xVel, yVel, jumpVel, xMovementVel;
@@ -47,7 +49,6 @@ public abstract class Characters {
 	public void moveLeft() {
 		setXVel(-1*xMovementVel);
 	}
-	
 	
 	public void showPosition() {
 		System.out.println( "xPos: " + xPos + "\nyPos: " + yPos + "\n" );
@@ -131,6 +132,11 @@ public abstract class Characters {
 	
 	public int getY2() {
 		return getY() + height;
+	}
+	
+	//Does thing, to be overwritten
+	public void draw(Graphics g) {
+		
 	}
 	
 	

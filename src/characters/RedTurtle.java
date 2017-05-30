@@ -3,11 +3,9 @@ package characters;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Goomba extends Enemy {
+public class RedTurtle extends Enemy {
 
-	private Color myBrown = new Color(156, 104, 26);
-	
-	public Goomba(int xPos, int yPos) {
+	public RedTurtle(int xPos, int yPos) {
 		super(xPos, yPos);
 		health = 1;
 		jumpVel = 0;
@@ -18,7 +16,7 @@ public class Goomba extends Enemy {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(myBrown);
+		g.setColor(Color.RED);
 		if(health == 0 && height > 0) {
 			xVel = 0;
 			height -= shrinkRate;
@@ -27,8 +25,5 @@ public class Goomba extends Enemy {
 		g.fillRect(xPos, yPos, width, height);
 	}
 	
-	
-	
-	
-	
+
 }
