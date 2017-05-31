@@ -59,7 +59,10 @@ public class World
 	
 	public void updateCharactersPoisition() {
 		for(int i = 0; i< cList.size(); i++) {
-			cList.get(i).updatePosition();
+			if(cList.get(i).getHealth() == 0)
+				cList.remove(i);
+			else
+				cList.get(i).updatePosition();
 		}
 	}
 	
@@ -81,7 +84,7 @@ public class World
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				collision.checkPlayerEnemyCollide();
+				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
 				if(player.getY() == 350) {
 					player.setJumped(false);

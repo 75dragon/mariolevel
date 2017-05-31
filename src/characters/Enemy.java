@@ -1,15 +1,15 @@
 package characters;
 
 public abstract class Enemy extends Characters {
-	protected boolean topHurt;
+	protected boolean isStompable;
 	protected int shrinkRate = 15;
 	
 	public Enemy(int x, int y) {
 		super(x,y);
 	}
 	
-	public boolean getTopHurt() {
-		return topHurt;
+	public boolean getStompable() {
+		return isStompable;
 	}
 	
 	public void updatePosition() {

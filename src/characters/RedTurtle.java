@@ -9,7 +9,7 @@ public class RedTurtle extends Enemy {
 		super(xPos, yPos);
 		health = 1;
 		jumpVel = 0;
-		topHurt = false;
+		isStompable = true;
 		xMovementVel = 5;
 		width = 20;
 		height = 20;

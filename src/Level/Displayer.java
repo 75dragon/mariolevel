@@ -14,7 +14,7 @@ import characters.Characters;
 
 public class Displayer extends JPanel
 {
-	World w;
+	World world;
 	JLabel gameOverLabel = new JLabel();
 	
 	public Displayer(int x, int y) 
@@ -34,7 +34,7 @@ public class Displayer extends JPanel
 	
 	public void setWorld( World world )
 	{
-		w = world;
+		this.world = world;
 	}
 	
 	public void drawCharacters(Graphics g) {
@@ -42,7 +42,7 @@ public class Displayer extends JPanel
 		// if health != 0 before drawing, otherwise if health == 0
 		// don't draw
 		
-		ArrayList<Characters> cList = w.getCList();
+		ArrayList<Characters> cList = world.getCList();
 		for(int i = 0; i < cList.size(); i++) {
 			cList.get(i).draw(g);
 		}	

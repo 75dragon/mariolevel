@@ -5,63 +5,52 @@ import java.util.ArrayList;
 import Level.World;
 
 public class CharacterCollision {
-	World world;
+	private World world;
+	private ArrayList<Characters> cList;
+	private Player player;
 	
 	public void setWorld(World world) {
 		this.world = world;
 	}
+	
+	public void updateCharactersList() {
+		cList = world.getCList();
+	}
 		
-	public void checkPlayerEnemyCollide() {
-		int playerX1 = world.player.getX1();
-		int playerX2 = world.player.getX2();
-		int playerY1 = world.player.getY1();
-		int playerY2 = world.player.getY2();
+	public void checkPlayerEnemyCollision() {
+		updateCharactersList();
+		player = (Player) cList.get(0);	// Cast as Player because cList returns a Characters object
 		
-		int goomba1X1 = world.goomba1.getX1();
-		int goomba1X2 = world.goomba1.getX2();
-		int goomba1Y1 = world.goomba1.getY1();
-		int goomba1Y2 = world.goomba1.getY2();
-		
-		// Top collide, for enemy stomping
-		if( playerX2 > goomba1X1 && playerY2 > goomba1Y1 &&
-			playerY1 < goomba1Y1 && playerX1 < goomba1X2 && world.goomba1.getJumped()) {
-			world.player.stomp(world.goomba1); 
-		}
-		// for all other collisions
-		else if( playerX1 < goomba1X2 && playerX2 > goomba1X1 &&
-			playerY1 < goomba1Y2 && playerY2 > goomba1Y1	) {
-			System.out.println("death");
-			//			world.showGameOver();
+		for(int i = 1; i < cList.size(); i++) {
+			Enemy currentEnemy = (Enemy) cList.get(i); // Cast as Enemy because cList returns a Characters object
+			// See the bottom of the Characters class for meaning of X1, X2, X3 and X4
+			// Check to see if the player collides with the enemy from the top. If the enemy is stompable, kill it
+			if( player.getX2() > currentEnemy.getX1() && player.getY2() > currentEnemy.getY1() &&
+				player.getY1() < currentEnemy.getY1() && player.getX1() < currentEnemy.getX2() && currentEnemy.getStompable()) {
+				player.stomp(currentEnemy); 
+			}
+			// else if the player collides with the side of the enemy or if the enemy is not stompable and the
+			// player attempts to stomp
+			else if( player.getX1() < currentEnemy.getX2() && player.getX2() > currentEnemy.getX1() &&
+					 player.getY1() < currentEnemy.getY2() && player.getY2() > currentEnemy.getY1()	) {
+				System.out.println("death");
+				//	world.showGameOver();
+			}
 		}
 	}
 	
-	/*		(x1, y1)		(x2, y1)
-	 * 		-----------------
-	 * 		|				|
-	 *		|				| 		
-	 *		|				|
-	 * 		|				|	
-	 * 		-----------------
-	 * 		(x1, y2)		(x2, y2)
-	 */
-	
-	// Changes direction of enemy movement if they collide
+	// Changes direction of enemy movement if they run into each other from the side
 	public void checkEnemyEnemyCollision() {
-		int goomba1X1 = world.goomba1.getX1();
-		int goomba1X2 = world.goomba1.getX2();
-		int goomba1Y1 = world.goomba1.getY1();
-		int goomba1Y2 = world.goomba1.getY2();
-		
-		int redTurtle1X1 = world.redTurtle1.getX1();
-		int redTurtle1X2 = world.redTurtle1.getX2();
-		int redTurtle1Y1 = world.redTurtle1.getY1();
-		int redTurtle1Y2 = world.redTurtle1.getY2();
-		
-		if( ( goomba1X2 >= redTurtle1X1 && goomba1X1 < redTurtle1X1) ||
-			( goomba1X1 > redTurtle1X1 && goomba1X1 <= redTurtle1X2) ) {
-			world.goomba1.changeDirection();
-			world.redTurtle1.changeDirection();
-			
+		updateCharactersList();
+		// Start counting at 1 because index 0 of the cList is the player
+		for(int i = 1; i < cList.size()-1; i++) {
+			Enemy currentEnemy = (Enemy) cList.get(i);
+			Enemy nextEnemy = (Enemy) cList.get(i+1);
+			if( ( currentEnemy.getX2() >= nextEnemy.getX1() && currentEnemy.getX1() < nextEnemy.getX1()) ||
+			    ( currentEnemy.getX1() > nextEnemy.getX1() && currentEnemy.getX1() <= nextEnemy.getX2()) ) {
+				currentEnemy.changeDirection();
+				nextEnemy.changeDirection();
+			}
 		}
 	}
 }
