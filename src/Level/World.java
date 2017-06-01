@@ -18,7 +18,7 @@ public class World
 	Timer time;
 	private Displayer displayer;
 	public Player player;
-	public Enemy goomba1, redTurtle1;
+	public Enemy goomba1, redTurtle1, goomba2;
 	CharacterCollision collision;
 	private final int delay = 50;
 	Tile[][] level;
@@ -49,24 +49,28 @@ public class World
 		cList = new ArrayList<>();
 		this.player = new Player(20,20);
 		goomba1 = new Goomba(100,350);
+		goomba2 = new Goomba(300,350);
 		redTurtle1 = new RedTurtle(200,350);
-		goomba1.moveRight();
-		redTurtle1.moveLeft();
+		//goomba2.moveLeft();
+		//goomba1.moveRight();
+		//redTurtle1.moveLeft();
 		cList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
+		cList.add(goomba2);
+		
 	}
 	
+	// Check if Character health is 0
 	public void updateCharactersPoisition() {
 		for(int i = 0; i< cList.size(); i++) {
-			if(cList.get(i).getHealth() == 0)
+			if(cList.get(i).getHealth() == 0 && cList.get(i).doneShrinking)
 				cList.remove(i);
 			else
 				cList.get(i).updatePosition();
 		}
 	}
 	
-
 	public Tile[][] getLevel()
 	{
 		return level;
@@ -84,12 +88,12 @@ public class World
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				updateCharactersPoisition();
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
-				if(player.getY() == 350) {
+				// maybe put this in method?
+				if(player.getY() == 350)
 					player.setJumped(false);
-				}
-				updateCharactersPoisition();
 				displayer.repaint();
 			}
 		});
@@ -103,7 +107,4 @@ public class World
 	public ArrayList<Characters> getCList() {
 		return cList;
 	}
-	
-	
-
 }

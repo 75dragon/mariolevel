@@ -27,8 +27,15 @@ public abstract class Enemy extends Characters {
 	
 	public void changeDirection() {
 			xVel *= -1;
+	}	
+	
+	public void tryShrinking() {
+		if(health == 0 && !doneShrinking) {
+			xVel = 0;
+			height -= shrinkRate;
+			yPos += shrinkRate;
+			if(height <= 0)
+				doneShrinking = true;
+		}
 	}
-	
-
-	
 }

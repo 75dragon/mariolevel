@@ -38,14 +38,20 @@ public class Displayer extends JPanel
 	}
 	
 	public void drawCharacters(Graphics g) {
-		// should store characters in an ArrayList, then check
-		// if health != 0 before drawing, otherwise if health == 0
-		// don't draw
-		
 		ArrayList<Characters> cList = world.getCList();
 		for(int i = 0; i < cList.size(); i++) {
 			cList.get(i).draw(g);
 		}	
+	}
+	
+	public void drawTiles(Graphics g) {
+		for ( int i = 0 ; i < world.xDim ; i++ )
+		{
+			for ( int j = 0 ; j < world.yDim ; j++)
+			{
+				world.level[i][j].drawMe(g);
+			}
+		}
 	}
 	
 	public void showGameOver() {
@@ -58,17 +64,19 @@ public class Displayer extends JPanel
 //	{
 //		g.setColor(Color.WHITE);
 //		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-//		for ( int i = 0 ; i < w.yDim ; i++ )
+//		for ( int i = 0 ; i < world.yDim ; i++ )
 //		{
-//			for ( int j = 0 ; j < w.xDim ; j++)
+//			for ( int j = 0 ; j < world.xDim ; j++)
 //			{
-//				w.level[i][j].drawMe(g);
+//				world.level[i][j].drawMe(g);
 //			}
 //		}
 //	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		drawTiles(g);
 		drawCharacters(g);
+		
 	}
 }

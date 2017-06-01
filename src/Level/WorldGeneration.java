@@ -20,6 +20,8 @@ public class WorldGeneration
 		rand = new Random();
 		xDim = x;
 		yDim = y;
+		System.out.println(xDim);
+		System.out.println(yDim);
 		theWorld = new Tile[x][y];
 		basics();
 		addPits(5, 3);

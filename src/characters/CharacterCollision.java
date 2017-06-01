@@ -23,7 +23,7 @@ public class CharacterCollision {
 		
 		for(int i = 1; i < cList.size(); i++) {
 			Enemy currentEnemy = (Enemy) cList.get(i); // Cast as Enemy because cList returns a Characters object
-			// See the bottom of the Characters class for meaning of X1, X2, X3 and X4
+			// See the bottom of the Characters class for meaning of X1, X2, Y1 and Y2
 			// Check to see if the player collides with the enemy from the top. If the enemy is stompable, kill it
 			if( player.getX2() > currentEnemy.getX1() && player.getY2() > currentEnemy.getY1() &&
 				player.getY1() < currentEnemy.getY1() && player.getX1() < currentEnemy.getX2() && currentEnemy.getStompable()) {
@@ -33,7 +33,7 @@ public class CharacterCollision {
 			// player attempts to stomp
 			else if( player.getX1() < currentEnemy.getX2() && player.getX2() > currentEnemy.getX1() &&
 					 player.getY1() < currentEnemy.getY2() && player.getY2() > currentEnemy.getY1()	) {
-				System.out.println("death");
+				//System.out.println("death");
 				//	world.showGameOver();
 			}
 		}

@@ -7,8 +7,8 @@ public abstract class Characters {
 	protected int xVel, yVel, jumpVel, xMovementVel;
 	protected boolean jumped = true;
 	public int yMovementVel = 5;
+	public boolean doneShrinking = false;
 								
-	
 	public Characters(int x, int y) {
 		xPos = x;
 		yPos = y;
@@ -134,7 +134,7 @@ public abstract class Characters {
 		return getY() + height;
 	}
 	
-	//Does thing, to be overwritten
+	// Does nothing, to be overwritten by derived classes
 	public void draw(Graphics g) {
 		
 	}

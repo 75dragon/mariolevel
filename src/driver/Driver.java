@@ -22,7 +22,7 @@ public class Driver
 	
 	public Driver() {
 		frame = new Frame();
-		display = new Displayer(800,800);
+		display = new Displayer(1200,500);
 		//player = new Player(20,20,20,1);
 		physics = new Physics();
 		collision = new CharacterCollision();

@@ -16,7 +16,7 @@ public class Player extends Characters
 		super(xPos, yPos);
 		health = 1;
 		jumpVel = -25;
-		xMovementVel = 10;
+		xMovementVel = 5;
 		width = 20;
 		height = 20;
 	}
@@ -52,8 +52,4 @@ public class Player extends Characters
 			g.setColor(Color.WHITE);
 		g.fillRect(xPos, yPos, width, height);
 	}
-	
-	
-	
-
 }

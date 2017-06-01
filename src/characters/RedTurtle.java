@@ -17,13 +17,7 @@ public class RedTurtle extends Enemy {
 	
 	public void draw(Graphics g) {
 		g.setColor(Color.RED);
-		if(health == 0 && height > 0) {
-			xVel = 0;
-			height -= shrinkRate;
-			yPos += shrinkRate;
-		}
+		tryShrinking();
 		g.fillRect(xPos, yPos, width, height);
 	}
-	
-
 }

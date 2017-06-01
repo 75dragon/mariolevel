@@ -19,16 +19,7 @@ public class Goomba extends Enemy {
 	
 	public void draw(Graphics g) {
 		g.setColor(myBrown);
-		if(health == 0 && height > 0) {
-			xVel = 0;
-			height -= shrinkRate;
-			yPos += shrinkRate;
-		}
+		tryShrinking();
 		g.fillRect(xPos, yPos, width, height);
 	}
-	
-	
-	
-	
-	
 }
