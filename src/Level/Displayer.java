@@ -75,6 +75,7 @@ public class Displayer extends JPanel
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.translate( 600 - world.player.getX(), 250 - world.player.getY() );
 		drawTiles(g);
 		drawCharacters(g);
 		
