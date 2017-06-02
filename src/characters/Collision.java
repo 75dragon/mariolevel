@@ -8,7 +8,8 @@ public class Collision {
 	private World world;
 	private ArrayList<Characters> cList;
 	private Player player;
-	
+	//this is terrible. You should just instead just modify the world's array directly with getters and setters
+	//make sure that there are no bugs inside the code when everything is immidatly removed
 	public void setWorld(World world) {
 		this.world = world;
 	}
@@ -54,7 +55,16 @@ public class Collision {
 		}
 	}
 	
+<<<<<<< HEAD:src/characters/Collision.java
 	public void characterWorldCollision() {
 		updateCharactersList();
+=======
+	public void checkMapCollision()
+	{
+		// TODO Um yeah, iterate through both the player list and the enemy list
+		// And check the blocks around them
+		// If they are colliding with the player/enemy, move them back
+		// 
+>>>>>>> 4a84b8413080adc897fd275793640fac19ea8eba:src/characters/CharacterCollision.java
 	}
 }

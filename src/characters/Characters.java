@@ -2,12 +2,15 @@ package characters;
 
 import java.awt.Graphics;
 
+import Level.World;
+
 public abstract class Characters {
 	protected int health, xPos, yPos, width, height;
 	protected int xVel, yVel, jumpVel, xMovementVel;
 	protected boolean jumped = true;
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
+	public World w;
 								
 	public Characters(int x, int y) {
 		xPos = x;
