@@ -25,6 +25,8 @@ public class World
 	int xDim;
 	int yDim;
 	int tileDimentions;
+	//TODO have two seperate lists, one for the char
+	//and another for the player
 	private ArrayList<Characters> cList;
 
 
@@ -51,9 +53,9 @@ public class World
 		goomba1 = new Goomba(100,350);
 		goomba2 = new Goomba(300,350);
 		redTurtle1 = new RedTurtle(200,350);
-		//goomba2.moveLeft();
-		//goomba1.moveRight();
-		//redTurtle1.moveLeft();
+		goomba2.moveLeft();
+		goomba1.moveRight();
+		redTurtle1.moveLeft();
 		cList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
@@ -62,6 +64,7 @@ public class World
 	}
 	
 	// Check if Character health is 0
+	//TODO whats health in mario???
 	public void updateCharactersPoisition() {
 		for(int i = 0; i< cList.size(); i++) {
 			if(cList.get(i).getHealth() == 0 && cList.get(i).doneShrinking)
@@ -91,7 +94,9 @@ public class World
 				updateCharactersPoisition();
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
-				// maybe put this in method?
+				collision.checkMapCollision();
+				//TODO THIS SHOULD BE IN PLAYER METHOD
+				//maybe put this in method?
 				if(player.getY() == 350)
 					player.setJumped(false);
 				displayer.repaint();
