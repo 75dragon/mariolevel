@@ -5,7 +5,6 @@ import java.awt.Graphics;
 
 public class FlyingRedTurtle extends Enemy{
 	private Color charaColor = new  Color(255, 0, 0); 
-		
 	public FlyingRedTurtle(int x, int y){
 		super(x,y);
 		health = 2;
