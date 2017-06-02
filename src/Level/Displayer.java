@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import characters.Characters;
+import characters.Enemy;
+import characters.Player;
 
 public class Displayer extends JPanel
 {
@@ -38,10 +40,15 @@ public class Displayer extends JPanel
 	}
 	
 	public void drawCharacters(Graphics g) {
-		ArrayList<Characters> cList = world.getCList();
+		ArrayList<Enemy> cList = world.getCList();
 		for(int i = 0; i < cList.size(); i++) {
 			cList.get(i).draw(g);
 		}	
+		ArrayList<Player> pList = world.getPList();
+		for(int i = 0; i < pList.size(); i++) {
+			pList.get(i).draw(g);
+		}
+		
 	}
 	
 	public void drawTiles(Graphics g) {

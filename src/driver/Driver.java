@@ -33,7 +33,6 @@ public class Driver
 		frame.setVisible(true);
 	}
 	
-	
 	public static void main(String[] args) {
 		Driver d = new Driver();
 	}

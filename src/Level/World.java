@@ -27,7 +27,8 @@ public class World
 	int tileDimentions;
 	//TODO have two seperate lists, one for the char
 	//and another for the player
-	private ArrayList<Characters> cList;
+	private ArrayList<Enemy> cList;
+	private ArrayList<Player> pList;
 
 
 	public World(int x, int y, int tileDimentions, Displayer displayer, Collision collision)
@@ -48,6 +49,8 @@ public class World
 	
 	// initializes arrayList, instantiates characters and places characters in arrayList
 	public void initializeCharacters() {
+		// Maybe put some of these in their own methods
+		pList = new ArrayList<>();
 		cList = new ArrayList<>();
 		this.player = new Player(20,20);
 		goomba1 = new Goomba(100,350);
@@ -56,11 +59,10 @@ public class World
 		goomba2.moveLeft();
 		goomba1.moveRight();
 		redTurtle1.moveLeft();
-		cList.add(player);
+		pList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
 		cList.add(goomba2);
-		
 	}
 	
 	// Check if Character health is 0
@@ -71,6 +73,10 @@ public class World
 				cList.remove(i);
 			else
 				cList.get(i).updatePosition();
+		}
+		
+		for(int i = 0; i < pList.size(); i++) {
+			pList.get(i).updatePosition();
 		}
 	}
 	
@@ -109,7 +115,11 @@ public class World
 		time.stop();
 	}
 	
-	public ArrayList<Characters> getCList() {
+	public ArrayList<Enemy> getCList() {
 		return cList;
+	}
+	
+	public ArrayList<Player> getPList() {
+		return pList;
 	}
 }
