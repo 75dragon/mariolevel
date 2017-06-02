@@ -6,7 +6,8 @@ import Level.World;
 
 public class Collision {
 	private World world;
-	private ArrayList<Characters> cList;
+	private ArrayList<Enemy> cList;
+	private ArrayList<Player> pList;
 	private Player player;
 	//this is terrible. You should just instead just modify the world's array directly with getters and setters
 	//make sure that there are no bugs inside the code when everything is immidatly removed
@@ -14,16 +15,18 @@ public class Collision {
 		this.world = world;
 	}
 	
+	// Updates both Player and Enemy lists
 	public void updateCharactersList() {
 		cList = world.getCList();
+		pList = world.getPList();
 	}
 		
 	public void checkPlayerEnemyCollision() {
 		updateCharactersList();
-		player = (Player) cList.get(0);	// Cast as Player because cList returns a Characters object
+		player = pList.get(0);
 		
-		for(int i = 1; i < cList.size(); i++) {
-			Enemy currentEnemy = (Enemy) cList.get(i); // Cast as Enemy because cList returns a Characters object
+		for(int i = 0; i < cList.size(); i++) {
+			Enemy currentEnemy = cList.get(i);
 			// See the bottom of the Characters class for meaning of X1, X2, Y1 and Y2
 			// Check to see if the player collides with the enemy from the top. If the enemy is stompable, kill it
 			if( player.getX2() > currentEnemy.getX1() && player.getY2() > currentEnemy.getY1() &&
@@ -44,9 +47,9 @@ public class Collision {
 	public void checkEnemyEnemyCollision() {
 		updateCharactersList();
 		// Start counting at 1 because index 0 of the cList is the player
-		for(int i = 1; i < cList.size()-1; i++) {
-			Enemy currentEnemy = (Enemy) cList.get(i);
-			Enemy nextEnemy = (Enemy) cList.get(i+1);
+		for(int i = 0; i < cList.size()-1; i++) {
+			Enemy currentEnemy = cList.get(i);
+			Enemy nextEnemy = cList.get(i+1);
 			if( ( currentEnemy.getX2() >= nextEnemy.getX1() && currentEnemy.getX1() < nextEnemy.getX1()) ||
 			    ( currentEnemy.getX1() > nextEnemy.getX1() && currentEnemy.getX1() <= nextEnemy.getX2()) ) {
 				currentEnemy.changeDirection();
@@ -55,16 +58,14 @@ public class Collision {
 		}
 	}
 	
-<<<<<<< HEAD:src/characters/Collision.java
-	public void characterWorldCollision() {
+	// TODO Um yeah, iterate through both the player list and the enemy list
+	// And check the blocks around them
+	// If they are colliding with the player/enemy, move them back
+	// 
+	public void checkMapCollision() {
 		updateCharactersList();
-=======
-	public void checkMapCollision()
-	{
-		// TODO Um yeah, iterate through both the player list and the enemy list
-		// And check the blocks around them
-		// If they are colliding with the player/enemy, move them back
-		// 
->>>>>>> 4a84b8413080adc897fd275793640fac19ea8eba:src/characters/CharacterCollision.java
+		//Tile currentTile[][] = world.worl
+	
+
 	}
 }
