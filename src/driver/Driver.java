@@ -2,11 +2,10 @@ package driver;
 
 import Level.Displayer;
 import Level.Frame;
-import Level.Physics;
 import Level.World;
 import characters.Player;
 
-import characters.CharacterCollision;
+import characters.Collision;
 import control.Keyboard;
 
 
@@ -16,16 +15,14 @@ public class Driver
 	Displayer display;
 	World world;
 	Player player;
-	Physics physics;
 	Keyboard listener;
-	CharacterCollision collision;
+	Collision collision;
 	
 	public Driver() {
 		frame = new Frame();
 		display = new Displayer(1200,500);
 		//player = new Player(20,20,20,1);
-		physics = new Physics();
-		collision = new CharacterCollision();
+		collision = new Collision();
 		// Items passed into constructor for world class are completely arbitrary,
 		// so that the program will compile
 		world = new World(100,10,30, display, collision);
@@ -40,6 +37,4 @@ public class Driver
 	public static void main(String[] args) {
 		Driver d = new Driver();
 	}
-	
-	
 }

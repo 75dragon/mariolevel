@@ -23,7 +23,6 @@ public class Tile
 	{			
 		if ( !passable )
 		{		
-
 			g.setColor(color);
 			g.fillRect(x * width, y * width, width, width);
 		}

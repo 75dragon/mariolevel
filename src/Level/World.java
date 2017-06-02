@@ -11,7 +11,7 @@ import characters.Enemy;
 import characters.Goomba;
 import characters.Player;
 import characters.RedTurtle;
-import characters.CharacterCollision;
+import characters.Collision;
 
 public class World
 {
@@ -19,7 +19,7 @@ public class World
 	private Displayer displayer;
 	public Player player;
 	public Enemy goomba1, redTurtle1, goomba2;
-	CharacterCollision collision;
+	Collision collision;
 	private final int delay = 50;
 	Tile[][] level;
 	int xDim;
@@ -28,7 +28,7 @@ public class World
 	private ArrayList<Characters> cList;
 
 
-	public World(int x, int y, int tileDimentions, Displayer displayer, CharacterCollision collision)
+	public World(int x, int y, int tileDimentions, Displayer displayer, Collision collision)
 	{
 		this.displayer = displayer;
 		this.collision = collision;

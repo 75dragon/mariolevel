@@ -21,7 +21,7 @@ public class Displayer extends JPanel
 	{
 		this.setPreferredSize(new Dimension(x, y));
 		this.setVisible(true);
-		setBackground(Color.BLACK);
+		setBackground(Color.GRAY);
 		initializeGameOverLabel();
 	}
 	

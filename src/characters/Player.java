@@ -3,11 +3,8 @@ package characters;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import Level.Physics;
-
 public class Player extends Characters
 {
-	Physics phys;
 	int stompLaunchSpeed = -20;
 	int runSpeed = xMovementVel + 10;
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import Level.World;
 
-public class CharacterCollision {
+public class Collision {
 	private World world;
 	private ArrayList<Characters> cList;
 	private Player player;
@@ -33,7 +33,7 @@ public class CharacterCollision {
 			// player attempts to stomp
 			else if( player.getX1() < currentEnemy.getX2() && player.getX2() > currentEnemy.getX1() &&
 					 player.getY1() < currentEnemy.getY2() && player.getY2() > currentEnemy.getY1()	) {
-				//System.out.println("death");
+				System.out.println("death");
 				//	world.showGameOver();
 			}
 		}
@@ -52,5 +52,9 @@ public class CharacterCollision {
 				nextEnemy.changeDirection();
 			}
 		}
+	}
+	
+	public void characterWorldCollision() {
+		updateCharactersList();
 	}
 }
