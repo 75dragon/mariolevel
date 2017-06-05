@@ -14,7 +14,7 @@ public class Driver
 	Frame frame;
 	Displayer display;
 	World world;
-	Player player;
+	Player player; //Not Used
 	Keyboard listener;
 	Collision collision;
 	

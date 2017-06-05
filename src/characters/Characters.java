@@ -65,7 +65,7 @@ public abstract class Characters {
 	public void updatePosition() {
 		xPos += xVel;
 		yPos += yVel;
-		if ( yPos > 350 )
+		if ( yPos > 350 ) //350 is the ground
 		{
 			yPos = 350;
 			yVel = 0;

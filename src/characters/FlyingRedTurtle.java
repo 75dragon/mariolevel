@@ -16,6 +16,17 @@ public class FlyingRedTurtle extends Enemy{
 		height = 50;
 	}
 	
+	//TODO Get back to applying gravity later
+	public void updatePosition() {
+		xPos += xVel;
+		yPos += yVel;
+		if ( yPos > 350 )
+		{
+			yPos = 350;
+			yVel = 0;
+		}
+		applyGravity();
+	}
 	
 	public void draw(Graphics g){
 		g.setColor(charaColor);
