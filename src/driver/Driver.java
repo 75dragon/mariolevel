@@ -1,12 +1,12 @@
 package driver;
 
-import Level.Displayer;
-import Level.Frame;
-import Level.World;
 import characters.Player;
 
 import characters.Collision;
 import control.Keyboard;
+import level.Displayer;
+import level.Frame;
+import level.World;
 
 
 public class Driver

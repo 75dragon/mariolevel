@@ -10,8 +10,8 @@ public class FlyingRedTurtle extends Enemy{
 		health = 2;
 		jumpVel = 0;
 		isStompable = true;
-		xMovementVel = 0;
-		yMovementVel = 5; 
+		xMovementVel = 1;
+		yMovementVel = 4; 
 		width = 50;
 		height = 50;
 	}
@@ -26,6 +26,17 @@ public class FlyingRedTurtle extends Enemy{
 			yVel = 0;
 		}
 		applyGravity();
+	}
+	
+	@Override
+	public void applyGravity(){
+		if (yPos < 350)
+		{
+			yVel -= 2;
+		}
+		if (yPos > 600){
+			yVel += 2;
+		}
 	}
 	
 	public void draw(Graphics g){

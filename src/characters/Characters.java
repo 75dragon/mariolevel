@@ -2,7 +2,7 @@ package characters;
 
 import java.awt.Graphics;
 
-import Level.World;
+import level.World;
 
 public abstract class Characters {
 	protected int health, xPos, yPos, width, height;

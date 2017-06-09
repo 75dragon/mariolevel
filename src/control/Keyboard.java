@@ -3,7 +3,7 @@ package control;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import Level.World;
+import level.World;
 
 public class Keyboard implements KeyListener
 {
@@ -47,7 +47,7 @@ public class Keyboard implements KeyListener
 		if( key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_LEFT  ||
 			key == KeyEvent.VK_UP || key == KeyEvent.VK_DOWN) {
 			world.player.setXVel(0);
-			world.player.setYVel(0);
+			//world.player.setYVel(0);
 		}
 		
 		

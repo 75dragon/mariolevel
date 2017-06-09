@@ -13,7 +13,7 @@ public class Player extends Characters
 		super(xPos, yPos);
 		health = 1;
 		jumpVel = -25;
-		xMovementVel = 5;
+		xMovementVel = 6;
 		width = 20;
 		height = 20;
 	}

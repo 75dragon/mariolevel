@@ -2,7 +2,7 @@ package characters;
 
 import java.util.ArrayList;
 
-import Level.World;
+import level.World;
 
 public class Collision {
 	private World world;
@@ -66,6 +66,5 @@ public class Collision {
 		updateCharactersList();
 		//Tile currentTile[][] = world.worl
 	
-
 	}
 }
