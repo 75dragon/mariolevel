@@ -20,7 +20,7 @@ public class Driver
 	
 	public Driver() {
 		frame = new Frame();
-		display = new Displayer(1200,500);
+		display = new Displayer(1600,500);
 		//player = new Player(20,20,20,1);
 		collision = new Collision();
 		// Items passed into constructor for world class are completely arbitrary,

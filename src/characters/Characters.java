@@ -1,6 +1,7 @@
 package characters;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import level.World;
 
@@ -11,12 +12,14 @@ public abstract class Characters {
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
 	public World w;
+	BufferedImage image;
 								
-	public Characters(int x, int y) {
+	public Characters(int x, int y, BufferedImage img) {
 		xPos = x;
 		yPos = y;
 		xVel = 0;
 		yVel = 0;
+		image = img;
 		// any class that inherits from Characters must set
 		// health, jumpVel, xMovementVel and size variables
 	}
