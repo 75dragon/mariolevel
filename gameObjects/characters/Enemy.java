@@ -1,14 +1,17 @@
 package characters;
 
-public abstract class Enemy extends Characters {
+import baseClasses.GameObjectID;
+
+public abstract class Enemy extends Character {
 	protected boolean isStompable;
 	protected int shrinkRate = 15;
 	
 	public Enemy(int x, int y) {
 		super(x,y);
+		objectID = GameObjectID.ENEMY;
 	}
 	
-	public boolean getStompable() {
+	public boolean isStompable() {
 		return isStompable;
 	}
 	

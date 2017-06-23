@@ -2,40 +2,46 @@ package characters;
 
 import java.awt.Graphics;
 
+import baseClasses.GameObject;
+import baseClasses.GameObjectID;
 import level.World;
 
-public abstract class Characters {
-	protected int health, xPos, yPos, width, height;
+public abstract class Character extends GameObject {
+	protected int health;
 	protected int xVel, yVel, jumpVel, xMovementVel;
-	protected boolean jumped = true;
+	protected boolean jumping = true;
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
-	public World w;
+	public World world;
 								
-	public Characters(int x, int y) {
-		xPos = x;
-		yPos = y;
+	public Character(int xPos, int yPos) {
+		super(xPos,yPos);
 		xVel = 0;
 		yVel = 0;
 		// any class that inherits from Characters must set
 		// health, jumpVel, xMovementVel and size variables
 	}
 	
-	public void setJumped(boolean j) {
-		jumped = j;
+	public void setWorld(World world) {
+		this.world = world;
 	}
 	
-	public boolean getJumped() {
-		return jumped;
+	
+	public void setJump(boolean j) {
+		jumping = j;
+	}
+	
+	public boolean isJumping() {
+		return jumping;
 	}
 
-	public void jump() {
-		if (!jumped) {
-			setYVel(jumpVel);
-			jumped = true;
-			updatePosition();
-		}
-	}
+//	public void jump() {
+//		if (!jumped) {
+//			setYVel(jumpVel);
+//			jumped = true;
+//			updatePosition();
+//		}
+//	}
 	
 	public void moveUp() {
 		setYVel(-1*yMovementVel);
@@ -137,10 +143,21 @@ public abstract class Characters {
 		return getY() + height;
 	}
 	
-	// Does nothing, to be overwritten by derived classes
-	public void draw(Graphics g) {
-		
+	public void setXPos(int xPos) {
+		this.xPos = xPos;
 	}
+	
+	public void setYPos(int yPos) {
+		this.yPos = yPos;
+	}
+	
+	
+	
+	
+	
+	
+	// Does nothing, to be overwritten by derived classes
+	public abstract void draw(Graphics g);
 	
 	/*		(x1, y1)		(x2, y1)
 	 * 		-----------------

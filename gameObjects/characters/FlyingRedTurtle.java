@@ -5,13 +5,15 @@ import java.awt.Graphics;
 
 public class FlyingRedTurtle extends Enemy{
 	private Color charaColor = new  Color(255, 0, 0); 
+	
+	
 	public FlyingRedTurtle(int x, int y){
 		super(x,y);
 		health = 2;
 		jumpVel = 0;
 		isStompable = true;
 		xMovementVel = 1;
-		yMovementVel = 4; 
+		yMovementVel = 1; 
 		width = 50;
 		height = 50;
 	}
@@ -30,14 +32,17 @@ public class FlyingRedTurtle extends Enemy{
 	
 	@Override
 	public void applyGravity(){
-		if (yPos < 350)
+		if (yPos < 50)
 		{
-			yVel -= 2;
-		}
-		if (yPos > 600){
 			yVel += 2;
 		}
+		if (yPos > 150){
+			yVel -= 2;
+		}
 	}
+	
+	
+	
 	
 	public void draw(Graphics g){
 		g.setColor(charaColor);

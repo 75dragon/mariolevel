@@ -6,11 +6,13 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
-import characters.Characters;
+import characters.Character;
 import characters.Enemy;
+import characters.FlyingRedTurtle;
 import characters.Goomba;
 import characters.Player;
 import characters.RedTurtle;
+import tiles.Tile;
 import characters.Collision;
 
 public class World
@@ -18,7 +20,7 @@ public class World
 	Timer time;
 	private Displayer displayer;
 	public Player player;
-	public Enemy goomba1, redTurtle1, goomba2;
+	public Enemy goomba1, redTurtle1, goomba2, flyingTurtle1;
 	Collision collision;
 	private final int delay = 50;
 	Tile[][] level;
@@ -56,13 +58,15 @@ public class World
 		goomba1 = new Goomba(100,350);
 		goomba2 = new Goomba(300,350);
 		redTurtle1 = new RedTurtle(200,350);
-		goomba2.moveLeft();
-		goomba1.moveRight();
-		redTurtle1.moveLeft();
+		flyingTurtle1 = new FlyingRedTurtle(150, 100);
+		//goomba2.moveLeft();
+		//goomba1.moveRight();
+		//redTurtle1.moveLeft();
 		pList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
 		cList.add(goomba2);
+		cList.add(flyingTurtle1);
 	}
 	
 	// Check if Character health is 0
@@ -101,10 +105,6 @@ public class World
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
 				collision.checkMapCollision();
-				//TODO THIS SHOULD BE IN PLAYER METHOD
-				//maybe put this in method?
-				if(player.getY() == 350)
-					player.setJumped(false);
 				displayer.repaint();
 			}
 		});

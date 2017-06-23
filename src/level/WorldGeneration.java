@@ -2,6 +2,8 @@ package level;
 
 import java.util.Random;
 
+import tiles.Tile;
+
 public class WorldGeneration
 {
 	Tile[][] theWorld;

@@ -1,6 +1,8 @@
+/baseClasses/
 /characters/
-/server/
 /client/
 /control/
 /driver/
 /level/
+/server/
+/tiles/

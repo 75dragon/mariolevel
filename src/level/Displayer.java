@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import characters.Characters;
+import characters.Character;
 import characters.Enemy;
 import characters.Player;
 
