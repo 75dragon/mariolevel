@@ -1,6 +1,7 @@
 package characters;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import baseClasses.GameObject;
 import baseClasses.GameObjectID;
@@ -9,6 +10,7 @@ import level.World;
 public abstract class Character extends GameObject {
 	protected int health;
 	protected int xVel, yVel, jumpVel, xMovementVel;
+<<<<<<< HEAD:gameObjects/characters/Character.java
 	protected boolean jumping = true;
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
@@ -16,8 +18,23 @@ public abstract class Character extends GameObject {
 								
 	public Character(int xPos, int yPos) {
 		super(xPos,yPos);
+=======
+	protected int floor = 350;
+	protected boolean jumped = true;
+	public int yMovementVel = 5;
+	public boolean doneShrinking = false;
+	public World w;
+	BufferedImage image;
+								
+	public Characters(int x, int y, BufferedImage img) {
+		xPos = x;
+		yPos = y;
+		width = 40;
+		height = 40;
+>>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4:src/characters/Characters.java
 		xVel = 0;
 		yVel = 0;
+		image = img;
 		// any class that inherits from Characters must set
 		// health, jumpVel, xMovementVel and size variables
 	}
@@ -76,7 +93,18 @@ public abstract class Character extends GameObject {
 			yPos = 350;
 			yVel = 0;
 		}
+//		else if( yPos < 220)
+//		{ 
+//				yPos = 220;
+//				yVel = 0;
+//				
+//		}
 		applyGravity();
+		
+		if(xPos < 0) 
+			xPos = 0;
+		else if(xPos > 3000)
+			xPos = 3000;
 	}
 	
 	public void applyGravity()

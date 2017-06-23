@@ -1,9 +1,15 @@
 package level;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import characters.Character;
@@ -27,6 +33,12 @@ public class World
 	int xDim;
 	int yDim;
 	int tileDimentions;
+	int floor = 350;
+	
+	// Images
+	BufferedImage marioImage, goombaImage, redTurtleImage;
+	
+	
 	//TODO have two seperate lists, one for the char
 	//and another for the player
 	private ArrayList<Enemy> cList;
@@ -37,6 +49,7 @@ public class World
 	{
 		this.displayer = displayer;
 		this.collision = collision;
+		loadImages();
 		initializeCharacters();
 		displayer.setWorld(this);
 		collision.setWorld(this);
@@ -49,11 +62,28 @@ public class World
 		level = WG.getWorld();
 	}
 	
+	
+    public void loadImages()
+    {
+        try
+        {
+        	marioImage = ImageIO.read( new File("src/dropoutbear.jpg") ); //getClass().getResource("/dropoutbear.jpg") );
+            goombaImage = ImageIO.read( new File("src/taylor.jpg") );
+            redTurtleImage = ImageIO.read( new File("src/lilyachty.jpg") ); 
+        } 
+        catch ( IOException e )
+        {
+            e.printStackTrace();
+        }
+        
+    }
+	
 	// initializes arrayList, instantiates characters and places characters in arrayList
 	public void initializeCharacters() {
 		// Maybe put some of these in their own methods
 		pList = new ArrayList<>();
 		cList = new ArrayList<>();
+<<<<<<< HEAD
 		this.player = new Player(20,20);
 		goomba1 = new Goomba(100,350);
 		goomba2 = new Goomba(300,350);
@@ -62,6 +92,15 @@ public class World
 		//goomba2.moveLeft();
 		//goomba1.moveRight();
 		//redTurtle1.moveLeft();
+=======
+		this.player = new Player(20,20, marioImage);
+		goomba1 = new Goomba(200,floor, goombaImage);
+		goomba2 = new Goomba(400,floor, goombaImage);
+		redTurtle1 = new RedTurtle(500,floor, redTurtleImage);
+		goomba2.moveLeft();
+		goomba1.moveRight();
+		redTurtle1.moveLeft();
+>>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
 		pList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
@@ -105,6 +144,10 @@ public class World
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
 				collision.checkMapCollision();
+<<<<<<< HEAD
+=======
+				player.checkJump();
+>>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
 				displayer.repaint();
 			}
 		});

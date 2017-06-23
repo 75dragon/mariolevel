@@ -1,14 +1,26 @@
 package characters;
 
+<<<<<<< HEAD:gameObjects/characters/Enemy.java
 import baseClasses.GameObjectID;
 
 public abstract class Enemy extends Character {
+=======
+import java.awt.image.BufferedImage;
+
+public abstract class Enemy extends Characters {
+>>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4:src/characters/Enemy.java
 	protected boolean isStompable;
 	protected int shrinkRate = 15;
+
 	
+<<<<<<< HEAD:gameObjects/characters/Enemy.java
 	public Enemy(int x, int y) {
 		super(x,y);
 		objectID = GameObjectID.ENEMY;
+=======
+	public Enemy(int x, int y, BufferedImage image) {
+		super(x, y, image);
+>>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4:src/characters/Enemy.java
 	}
 	
 	public boolean isStompable() {
