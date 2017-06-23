@@ -1,4 +1,4 @@
-package Level;
+package level;
 
 import java.util.Random;
 
@@ -25,9 +25,9 @@ public class WorldGeneration {
 		System.out.println(yDim);
 		theWorld = new Tile[x][y];
 		basics();
-		addPits(5, 3);
-		addRamdomBlocks((x + y) * 2 / 3);
-		addPlatforms(7, 5);
+		addPits(7, 5);
+		addRamdomBlocks((x + y) * 1 / 3);
+		addPlatforms(7, 9);
 		addHills(5, 5);
 		printWorld();
 	}

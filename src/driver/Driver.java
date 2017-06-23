@@ -20,12 +20,12 @@ public class Driver
 	
 	public Driver() {
 		frame = new Frame();
-		display = new Displayer(1600,500);
+		display = new Displayer(1200,500);
 		//player = new Player(20,20,20,1);
 		collision = new Collision();
 		// Items passed into constructor for world class are completely arbitrary,
 		// so that the program will compile
-		world = new World(100,10,30, display, collision);
+		world = new World(100,10,40, display, collision);
 		listener = new Keyboard(world);
 		frame.addKeyListener(listener);
 		frame.add(display);

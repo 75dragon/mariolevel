@@ -14,9 +14,9 @@ public class Player extends Characters
 		super(xPos, yPos, image);
 		health = 1;
 		jumpVel = -25;
-		xMovementVel = 6;
-		width = 50;
-		height = 50;
+		xMovementVel = 10;
+		//width = 50;
+		//height = 50;
 	}
 	
 	public void runRight() {
@@ -27,14 +27,19 @@ public class Player extends Characters
 		setXVel(-1*runSpeed);
 	}
 	
+	public void checkJump() {
+		if(yPos == floor)
+			jumped = false;
+	}
+	
 	public void stomp(Enemy enemy) {
 		setYVel(stompLaunchSpeed);
 		enemy.setHealth(0);
 		updatePosition();
 	}
 	
-	public void playerDeath() {
-		yVel = (stompLaunchSpeed);
+	public void death() {
+		yVel = (-5);
 		health = 0;
 		updatePosition();
 	}

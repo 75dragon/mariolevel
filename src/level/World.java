@@ -67,7 +67,7 @@ public class World
         {
         	marioImage = ImageIO.read( new File("src/dropoutbear.jpg") ); //getClass().getResource("/dropoutbear.jpg") );
             goombaImage = ImageIO.read( new File("src/taylor.jpg") );
-            redTurtleImage = ImageIO.read( new File("src/lilyatchy.jpg") ); 
+            redTurtleImage = ImageIO.read( new File("src/lilyachty.jpg") ); 
         } 
         catch ( IOException e )
         {
@@ -130,10 +130,7 @@ public class World
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
 				collision.checkMapCollision();
-				//TODO THIS SHOULD BE IN PLAYER METHOD
-				//maybe put this in method?
-				if(player.getY() == floor)
-					player.setJumped(false);
+				player.checkJump();
 				displayer.repaint();
 			}
 		});

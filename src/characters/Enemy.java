@@ -5,11 +5,10 @@ import java.awt.image.BufferedImage;
 public abstract class Enemy extends Characters {
 	protected boolean isStompable;
 	protected int shrinkRate = 15;
-	//BufferedImage image;
+
 	
 	public Enemy(int x, int y, BufferedImage image) {
-		super(x,y, image);
-		//image = img;
+		super(x, y, image);
 	}
 	
 	public boolean getStompable() {

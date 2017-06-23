@@ -8,6 +8,7 @@ import level.World;
 public abstract class Characters {
 	protected int health, xPos, yPos, width, height;
 	protected int xVel, yVel, jumpVel, xMovementVel;
+	protected int floor = 350;
 	protected boolean jumped = true;
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
@@ -17,6 +18,8 @@ public abstract class Characters {
 	public Characters(int x, int y, BufferedImage img) {
 		xPos = x;
 		yPos = y;
+		width = 40;
+		height = 40;
 		xVel = 0;
 		yVel = 0;
 		image = img;
@@ -73,7 +76,18 @@ public abstract class Characters {
 			yPos = 350;
 			yVel = 0;
 		}
+//		else if( yPos < 220)
+//		{ 
+//				yPos = 220;
+//				yVel = 0;
+//				
+//		}
 		applyGravity();
+		
+		if(xPos < 0) 
+			xPos = 0;
+		else if(xPos > 3000)
+			xPos = 3000;
 	}
 	
 	public void applyGravity()

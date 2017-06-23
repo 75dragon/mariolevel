@@ -42,7 +42,7 @@ public class FlyingRedTurtle extends Enemy{
 	}
 	
 	public void draw(Graphics g){
-		g.setColor(charaColor);
+		//g.setColor(charaColor);
 		tryShrinking(); 
 		g.fillRect(xPos, yPos, width, height);
 		g.drawImage(image, getX(), getY(), null);

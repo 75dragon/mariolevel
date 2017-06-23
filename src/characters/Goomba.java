@@ -14,8 +14,8 @@ public class Goomba extends Enemy {
 		jumpVel = 0;
 		isStompable = true;
 		xMovementVel = 5;
-		width = 50;
-		height = 50;
+		//width = 50;
+		//height = 50;
 	}
 	
 	public void draw(Graphics g) {

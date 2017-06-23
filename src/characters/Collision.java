@@ -37,6 +37,7 @@ public class Collision {
 			// player attempts to stomp
 			else if( player.getX1() < currentEnemy.getX2() && player.getX2() > currentEnemy.getX1() &&
 					 player.getY1() < currentEnemy.getY2() && player.getY2() > currentEnemy.getY1()	) {
+				player.death();
 				System.out.println("death");
 				//	world.showGameOver();
 			}
