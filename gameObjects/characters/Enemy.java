@@ -24,13 +24,8 @@ public abstract class Enemy extends Character {
 	public void updatePosition() {
 		xPos += xVel;
 		yPos += yVel;
-		if ( yPos > 350 )
-		{
-			yPos = 350;
-			yVel = 0;
-		}
 		applyGravity();
-		if(xPos <= 0 || xPos >= 780)
+		if(xPos <= 0 || xPos >= 1000)
 			changeDirection();
 	}
 	

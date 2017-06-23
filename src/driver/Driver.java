@@ -14,17 +14,14 @@ public class Driver
 	Frame frame;
 	Displayer display;
 	World world;
-	Player player; //Not Used
+	Player player;
 	Keyboard listener;
 	Collision collision;
 	
 	public Driver() {
 		frame = new Frame();
 		display = new Displayer(1200,500);
-		//player = new Player(20,20,20,1);
 		collision = new Collision();
-		// Items passed into constructor for world class are completely arbitrary,
-		// so that the program will compile
 		world = new World(100,10,40, display, collision);
 		listener = new Keyboard(world);
 		frame.addKeyListener(listener);

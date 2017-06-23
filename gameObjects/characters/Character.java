@@ -1,6 +1,7 @@
 package characters;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import baseClasses.GameObject;
@@ -16,6 +17,7 @@ public abstract class Character extends GameObject {
 	public int yMovementVel = 5;
 	public boolean doneShrinking = false;
 	public World world;
+	protected boolean falling = false;
 								
 	public Character(int xPos, int yPos) {
 	super(xPos,yPos);
@@ -35,6 +37,14 @@ public abstract class Character extends GameObject {
 	
 	public void setWorld(World world) {
 		this.world = world;
+	}
+	
+	public boolean isFalling() {
+		return falling;
+	}
+	
+	public void setFalling(boolean falling) {
+		this.falling = falling;
 	}
 	
 	
@@ -173,6 +183,18 @@ public abstract class Character extends GameObject {
 		this.yPos = yPos;
 	}
 	
+	public Rectangle getBounds() {
+		return new Rectangle(xPos+(width/3), yPos+height/2, width/3, height/2);
+	}
+	public Rectangle getBoundsTop() {
+		return new Rectangle(xPos+(width/3), yPos-2, width/3, height/2);
+	}
+	public Rectangle getBoundsRight() {
+		return new Rectangle(xPos+width-width/5, yPos+3, width/5, height-6);
+	}
+	public Rectangle getBoundsLeft() {
+		return new Rectangle(xPos, yPos+3, width/5, height-6);
+	}
 	
 	
 	
@@ -181,15 +203,7 @@ public abstract class Character extends GameObject {
 	// Does nothing, to be overwritten by derived classes
 	public abstract void draw(Graphics g);
 	
-	/*		(x1, y1)		(x2, y1)
-	 * 		-----------------
-	 * 		|				|
-	 *		|				| 		
-	 *		|				|
-	 * 		|				|	
-	 * 		-----------------
-	 * 		(x1, y2)		(x2, y2)
-	 */
+
 	
 	
 }

@@ -27,13 +27,14 @@ public class World
 	private Displayer displayer;
 	public Player player;
 	public Enemy goomba1, redTurtle1, goomba2, flyingTurtle1;
+	public Enemy goomba3, goomba4, goomba5, redTurtle2, redTurtle3;
 	Collision collision;
 	private final int delay = 50;
 	Tile[][] level;
 	int xDim;
 	int yDim;
 	int tileDimentions;
-	int floor = 350;
+	int floor = 50;
 	
 	// Images
 	BufferedImage marioImage, goombaImage, redTurtleImage;
@@ -43,6 +44,7 @@ public class World
 	//and another for the player
 	private ArrayList<Enemy> cList;
 	private ArrayList<Player> pList;
+	public ArrayList<Character> charaList;
 
 
 	public World(int x, int y, int tileDimentions, Displayer displayer, Collision collision)
@@ -83,24 +85,61 @@ public class World
 		// Maybe put some of these in their own methods
 		pList = new ArrayList<>();
 		cList = new ArrayList<>();
+		charaList = new ArrayList<>();
 		flyingTurtle1 = new FlyingRedTurtle(150, 100);
 		//goomba2.moveLeft();
 		//goomba1.moveRight();
 		//redTurtle1.moveLeft();
 
-		this.player = new Player(20,20, marioImage);
+		player = new Player(20,20, marioImage);
 		goomba1 = new Goomba(200,floor, goombaImage);
 		goomba2 = new Goomba(400,floor, goombaImage);
 		redTurtle1 = new RedTurtle(500,floor, redTurtleImage);
+		
+		goomba3 = new Goomba(1000,floor, goombaImage);
+		goomba4 = new Goomba(900,floor, goombaImage);
+		goomba5 = new Goomba(450,floor, goombaImage);
+		redTurtle2 = new RedTurtle(600,floor, redTurtleImage);
+		redTurtle3 = new RedTurtle(500,floor, redTurtleImage);
+		
+		
+		
+		
 		goomba2.moveLeft();
 		goomba1.moveRight();
 		redTurtle1.moveLeft();
+		goomba3.moveRight();
+		goomba4.moveLeft();
+		goomba5.moveRight();
+		redTurtle2.moveLeft();
+		redTurtle3.moveRight();
+		
 		pList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
 		cList.add(goomba2);
 		cList.add(flyingTurtle1);
+		cList.add(goomba3);
+		cList.add(goomba4);
+		cList.add(goomba5);
+		cList.add(redTurtle2);
+		cList.add(redTurtle3);
+		copyIntoCharaList();
 	}
+	
+	public void copyIntoCharaList() {
+		charaList.add(player);
+		charaList.add(goomba1);
+		charaList.add(redTurtle1);
+		charaList.add(goomba2);
+		charaList.add(flyingTurtle1);
+		charaList.add(goomba3);
+		charaList.add(goomba4);
+		charaList.add(goomba5);
+		charaList.add(redTurtle2);
+		charaList.add(redTurtle3);
+	}
+	
 	
 	// Check if Character health is 0
 	//TODO whats health in mario???

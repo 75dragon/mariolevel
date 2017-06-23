@@ -13,7 +13,7 @@ public class Player extends Character
 {
 	int stompLaunchSpeed = -20;
 	int runSpeed = xMovementVel + 10;
-	boolean falling = false;
+
 
 	public Player(int xPos, int yPos, BufferedImage img)
 	{
@@ -21,8 +21,8 @@ public class Player extends Character
 		health = 1;
 		jumpVel = -25;
 		xMovementVel = 6;
-		width = 20;
-		height = 20;
+		width = 30;
+		height = 30;
 		objectID = GameObjectID.PLAYER;
 	}
 	
@@ -56,13 +56,7 @@ public class Player extends Character
 		}
 	}
 	
-	public boolean isFalling() {
-		return falling;
-	}
-	
-	public void setFalling(boolean falling) {
-		this.falling = falling;
-	}
+
 	
 
 	public void draw(Graphics g)
@@ -84,18 +78,7 @@ public class Player extends Character
 		g2d.draw(getBoundsLeft());
 	}
 	
-	public Rectangle getBounds() {
-		return new Rectangle(xPos+(width/3), yPos+height/2, width/3, height/2);
-	}
-	public Rectangle getBoundsTop() {
-		return new Rectangle(xPos+(width/3), yPos-2, width/3, height/2);
-	}
-	public Rectangle getBoundsRight() {
-		return new Rectangle(xPos+width-width/5, yPos+3, width/5, height-6);
-	}
-	public Rectangle getBoundsLeft() {
-		return new Rectangle(xPos, yPos+3, width/5, height-6);
-	}
+
 	
 	
 	
