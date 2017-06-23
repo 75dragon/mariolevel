@@ -31,9 +31,9 @@ public class Keyboard implements KeyListener
 		// To do, add running for player
 		
 		// for testing player/enemy collision
-		if(key == KeyEvent.VK_UP) {
-			world.player.jump();
-		}
+		//if(key == KeyEvent.VK_UP) {
+		//	world.player.jump();
+		//}
 //		if(key == KeyEvent.VK_DOWN) {
 //			world.player.moveDown();
 //		}

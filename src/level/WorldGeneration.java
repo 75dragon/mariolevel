@@ -1,15 +1,9 @@
 package level;
 
 import java.util.Random;
-
-<<<<<<< HEAD
 import tiles.Tile;
 
-public class WorldGeneration
-{
-=======
 public class WorldGeneration {
->>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
 	Tile[][] theWorld;
 	int xDim;
 	int yDim;

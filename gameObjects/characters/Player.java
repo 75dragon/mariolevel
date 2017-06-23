@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import baseClasses.GameObjectID;
 import level.World;
@@ -14,9 +15,9 @@ public class Player extends Character
 	int runSpeed = xMovementVel + 10;
 	boolean falling = false;
 
-	public Player(int xPos, int yPos)
+	public Player(int xPos, int yPos, BufferedImage img)
 	{
-		super(xPos, yPos);
+		super(xPos, yPos, img);
 		health = 1;
 		jumpVel = -25;
 		xMovementVel = 6;

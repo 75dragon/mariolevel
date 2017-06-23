@@ -83,16 +83,11 @@ public class World
 		// Maybe put some of these in their own methods
 		pList = new ArrayList<>();
 		cList = new ArrayList<>();
-<<<<<<< HEAD
-		this.player = new Player(20,20);
-		goomba1 = new Goomba(100,350);
-		goomba2 = new Goomba(300,350);
-		redTurtle1 = new RedTurtle(200,350);
 		flyingTurtle1 = new FlyingRedTurtle(150, 100);
 		//goomba2.moveLeft();
 		//goomba1.moveRight();
 		//redTurtle1.moveLeft();
-=======
+
 		this.player = new Player(20,20, marioImage);
 		goomba1 = new Goomba(200,floor, goombaImage);
 		goomba2 = new Goomba(400,floor, goombaImage);
@@ -100,7 +95,6 @@ public class World
 		goomba2.moveLeft();
 		goomba1.moveRight();
 		redTurtle1.moveLeft();
->>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
 		pList.add(player);
 		cList.add(goomba1);
 		cList.add(redTurtle1);
@@ -144,10 +138,8 @@ public class World
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
 				collision.checkMapCollision();
-<<<<<<< HEAD
-=======
-				player.checkJump();
->>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
+
+			//	player.checkJump();
 				displayer.repaint();
 			}
 		});
