@@ -168,6 +168,8 @@ public class Collision {
 								System.out.println("in");
 								currentCharacter.setYPos(currentTile.getY2() + 5);
 								currentCharacter.setYVel(0);
+								currentCharacter.setYPos(currentCharacter.getY() + 3);
+
 
 							}
 

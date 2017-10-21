@@ -1,19 +1,2 @@
-<<<<<<< HEAD
-/baseClasses/
-=======
-/.classpath
-/.project
->>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
 /characters/
-/client/
-/control/
-/driver/
 /level/
-/server/
-<<<<<<< HEAD
-/tiles/
-=======
->>>>>>> 38be04eb6535109855a255af2034a2dc54ef56e4
-/dropoutbear.jpg
-/lilyachty.jpg
-/taylor.jpg

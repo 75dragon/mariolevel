@@ -64,7 +64,9 @@ public class World
 		level = WG.getWorld();
 	}
 	
-	
+	/**
+	 * Tries to load the images into the game
+	 */
     public void loadImages()
     {
         try
@@ -80,9 +82,10 @@ public class World
         
     }
 	
-	// initializes arrayList, instantiates characters and places characters in arrayList
+    /**
+     * initializes arrayList, instantiates characters and places characters in arrayList
+     */
 	public void initializeCharacters() {
-		// Maybe put some of these in their own methods
 		pList = new ArrayList<>();
 		cList = new ArrayList<>();
 		charaList = new ArrayList<>();
@@ -140,9 +143,10 @@ public class World
 		charaList.add(redTurtle3);
 	}
 	
-	
-	// Check if Character health is 0
-	//TODO whats health in mario???
+	/**
+	 * Check if Character health is 0
+	 * if not, updates the positions of everything
+	 */
 	public void updateCharactersPoisition() {
 		for(int i = 0; i< cList.size(); i++) {
 			if(cList.get(i).getHealth() == 0 && cList.get(i).doneShrinking)
@@ -184,15 +188,26 @@ public class World
 		});
 	}
 	
+	/**
+	 * displays game over
+	 */
 	public void showGameOver() {
 		displayer.showGameOver();
 		time.stop();
 	}
 	
+	/**
+	 * returns the enemy list
+	 * @return an array list of enemies
+	 */
 	public ArrayList<Enemy> getCList() {
 		return cList;
 	}
 	
+	/**
+	 * returns the player list
+	 * @return an array list of players
+	 */
 	public ArrayList<Player> getPList() {
 		return pList;
 	}

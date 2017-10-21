@@ -117,6 +117,11 @@ public class WorldGeneration {
 		return theWorld;
 	}
 
+	/**
+	 * adds a bunch of platforms to the game
+	 * @param platform_width how wide they should be
+	 * @param amount the amount of platforms
+	 */
 	public void addPlatforms(int platform_width, int amount) {
 		int holdx;
 		int holdy;
@@ -130,6 +135,11 @@ public class WorldGeneration {
 		}
 	}
 	
+	/**
+	 * adds hills to the game
+	 * @param platform_width the base height
+	 * @param amount the amount of hills
+	 */
 	public void addHills(int platform_width, int amount) {
 		int holdx;
 		for (int i = 0; i < amount; i++) {

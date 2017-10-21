@@ -27,6 +27,9 @@ public class Displayer extends JPanel
 		initializeGameOverLabel();
 	}
 	
+	/**
+	 * creates a game over screen
+	 */
 	public void initializeGameOverLabel() {
 		gameOverLabel.setText("");
 		gameOverLabel.setForeground(Color.RED);
@@ -39,6 +42,10 @@ public class Displayer extends JPanel
 		this.world = world;
 	}
 	
+	/**
+	 * draws all the chars
+	 * @param g graphics object
+	 */
 	public void drawCharacters(Graphics g) {
 		ArrayList<Enemy> cList = world.getCList();
 		for(int i = 0; i < cList.size(); i++) {
@@ -51,6 +58,10 @@ public class Displayer extends JPanel
 		
 	}
 	
+	/**
+	 * tells the tiles to go draw themselves
+	 * @param g the graphics object, so the tiles can draw themselves
+	 */
 	public void drawTiles(Graphics g) {
 		for ( int i = 0 ; i < world.xDim ; i++ )
 		{
@@ -61,6 +72,9 @@ public class Displayer extends JPanel
 		}
 	}
 	
+	/**
+	 * Shows game over lable
+	 */
 	public void showGameOver() {
 		gameOverLabel.setText("GAME OVER");
 		repaint();
@@ -85,6 +99,5 @@ public class Displayer extends JPanel
 		g.translate( 600 - world.player.getX(), 250 - world.player.getY() );
 		drawTiles(g);
 		drawCharacters(g);
-		
 	}
 }
