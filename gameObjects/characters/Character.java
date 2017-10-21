@@ -35,19 +35,34 @@ public abstract class Character extends GameObject {
 		// health, jumpVel, xMovementVel and size variables
 	}
 	
+	/**
+	 * sets the world object
+	 * @param world the world
+	 */
 	public void setWorld(World world) {
 		this.world = world;
 	}
 	
+	/**
+	 * returns if your falling
+	 * @return boolean
+	 */
 	public boolean isFalling() {
 		return falling;
 	}
 	
+	/**
+	 * set if your falling
+	 * @param falling boolean
+	 */
 	public void setFalling(boolean falling) {
 		this.falling = falling;
 	}
 	
-	
+	/**
+	 * sets if your jumping
+	 * @param j
+	 */
 	public void setJump(boolean j) {
 		jumping = j;
 	}
@@ -55,14 +70,6 @@ public abstract class Character extends GameObject {
 	public boolean isJumping() {
 		return jumping;
 	}
-
-//	public void jump() {
-//		if (!jumped) {
-//			setYVel(jumpVel);
-//			jumped = true;
-//			updatePosition();
-//		}
-//	}
 	
 	public void moveUp() {
 		setYVel(-1*yMovementVel);
@@ -97,12 +104,6 @@ public abstract class Character extends GameObject {
 			yPos = 350;
 			yVel = 0;
 		}
-//		else if( yPos < 220)
-//		{ 
-//				yPos = 220;
-//				yVel = 0;
-//				
-//		}
 		applyGravity();
 		
 		if(xPos < 0) 
@@ -196,14 +197,7 @@ public abstract class Character extends GameObject {
 		return new Rectangle(xPos, yPos+3, width/5, height-6);
 	}
 	
-	
-	
-	
-	
 	// Does nothing, to be overwritten by derived classes
 	public abstract void draw(Graphics g);
-	
-
-	
 	
 }
