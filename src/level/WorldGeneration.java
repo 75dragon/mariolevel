@@ -126,7 +126,7 @@ public class WorldGeneration {
 		int holdx;
 		int holdy;
 		for (int i = 0; i < amount; i++) {
-			holdx = rand.nextInt(xDim - 15) + 10;
+			holdx = rand.nextInt(xDim - 20) + 10;
 			holdy = rand.nextInt(yDim);
 			for (int a = 0; a < platform_width; a++) {
 				Tile mytile = new Tile((holdx + a), holdy, 30, false);

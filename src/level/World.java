@@ -28,7 +28,7 @@ public class World
 	public Player player;
 	public Enemy goomba1, redTurtle1, goomba2, flyingTurtle1;
 	public Enemy goomba3, goomba4, goomba5, redTurtle2, redTurtle3;
-	Collision collision;
+	public Collision collision;
 	private final int delay = 50;
 	Tile[][] level;
 	int xDim;
@@ -40,7 +40,6 @@ public class World
 	BufferedImage marioImage, goombaImage, redTurtleImage;
 	
 	
-	//TODO have two seperate lists, one for the char
 	//and another for the player
 	private ArrayList<Enemy> cList;
 	private ArrayList<Player> pList;
@@ -180,7 +179,7 @@ public class World
 				updateCharactersPoisition();
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
-				collision.checkMapCollision();
+//				collision.checkMapCollision();
 
 			//	player.checkJump();
 				displayer.repaint();

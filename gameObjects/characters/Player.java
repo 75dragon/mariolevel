@@ -15,9 +15,9 @@ public class Player extends Character
 	int runSpeed = xMovementVel + 10;
 
 
-	public Player(int xPos, int yPos, BufferedImage img)
+	public Player(int xPos, int yPos, World wor, BufferedImage img)
 	{
-		super(xPos, yPos, img);
+		super(xPos, yPos, wor, img);
 		health = 1;
 		jumpVel = -25;
 		xMovementVel = 6;
@@ -47,14 +47,14 @@ public class Player extends Character
 	}
 	
 	 //for testing player enemy collision
-	public void updatePosition() {
-		xPos += xVel;
-		yPos += yVel;
-		if(falling) {
-			applyGravity();
-			//System.out.println("applying g");
-		}
-	}
+//	public void updatePosition() {
+//		xPos += xVel;
+//		yPos += yVel;
+//		if(falling) {
+//			applyGravity();
+//			//System.out.println("applying g");
+//		}
+//	}
 	
 
 	
@@ -76,6 +76,8 @@ public class Player extends Character
 		g2d.draw(getBoundsRight());
 		g2d.setColor(Color.GREEN);
 		g2d.draw(getBoundsLeft());
+		g2d.setColor(Color.BLACK);
+		g2d.drawString(xPos + " " + yPos, xPos, yPos);
 	}
 	
 

@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import level.World;
+
 public class RedTurtle extends Enemy {
 
-	public RedTurtle(int xPos, int yPos, BufferedImage image) {
-		super(xPos, yPos, image);
+	public RedTurtle(int xPos, int yPos, World wor, BufferedImage image) {
+		super(xPos, yPos, wor, image);
 		health = 1;
 		jumpVel = 0;
 		isStompable = true;

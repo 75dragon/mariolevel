@@ -1,6 +1,8 @@
 package characters;
 
 import baseClasses.GameObjectID;
+import level.World;
+
 import java.awt.image.BufferedImage;
 
 public abstract class Enemy extends Character {
@@ -13,8 +15,8 @@ public abstract class Enemy extends Character {
 		objectID = GameObjectID.ENEMY;
 	}
 	
-	public Enemy(int x, int y, BufferedImage image) {
-		super(x, y, image);
+	public Enemy(int x, int y, World wor, BufferedImage image) {
+		super(x, y, wor, image);
 		}
 	
 	public boolean isStompable() {
