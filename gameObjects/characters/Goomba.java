@@ -4,12 +4,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import level.World;
+
 public class Goomba extends Enemy {
 
 	//private Color myBrown = new Color(156, 104, 26);
 	
-	public Goomba(int xPos, int yPos, BufferedImage image) {
-		super(xPos, yPos, image);
+	public Goomba(int xPos, int yPos, World wor, BufferedImage image) {
+		super(xPos, yPos, wor, image);
 		health = 1;
 		jumpVel = 0;
 		isStompable = true;
