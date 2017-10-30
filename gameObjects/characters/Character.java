@@ -99,11 +99,14 @@ public abstract class Character extends GameObject {
 	
 	public void updatePosition() {
 		xPos += xVel;
-		yPos += yVel;
 		Character me = this;
 		if (world.collision.checkMapCollision(me, xPos/30, yPos/30))
 		{
 			xPos -= xVel;
+		}
+		yPos += yVel;
+		if (world.collision.checkMapCollision(me, xPos/30, yPos/30))
+		{
 			yPos -= yVel;
 		}
 		applyGravity();		

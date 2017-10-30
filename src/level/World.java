@@ -93,16 +93,16 @@ public class World
 		//goomba1.moveRight();
 		//redTurtle1.moveLeft();
 
-		player = new Player(20,20, marioImage);
-		goomba1 = new Goomba(200,floor, goombaImage);
-		goomba2 = new Goomba(400,floor, goombaImage);
-		redTurtle1 = new RedTurtle(500,floor, redTurtleImage);
+		player = new Player(20,20, this, marioImage);
+		goomba1 = new Goomba(200,floor, this, goombaImage);
+		goomba2 = new Goomba(400,floor, this, goombaImage);
+		redTurtle1 = new RedTurtle(500,floor, this, redTurtleImage);
 		
-		goomba3 = new Goomba(1000,floor, goombaImage);
-		goomba4 = new Goomba(900,floor, goombaImage);
-		goomba5 = new Goomba(450,floor, goombaImage);
-		redTurtle2 = new RedTurtle(600,floor, redTurtleImage);
-		redTurtle3 = new RedTurtle(500,floor, redTurtleImage);
+		goomba3 = new Goomba(1000,floor, this, goombaImage);
+		goomba4 = new Goomba(900,floor, this, goombaImage);
+		goomba5 = new Goomba(450,floor, this, goombaImage);
+		redTurtle2 = new RedTurtle(600,floor, this, redTurtleImage);
+		redTurtle3 = new RedTurtle(500,floor, this, redTurtleImage);
 		
 		
 		

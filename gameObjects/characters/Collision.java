@@ -129,6 +129,10 @@ public class Collision
 	public boolean checkMapCollision(Character ch, int xPos, int yPos)
 	{
 		Tile[][] tiles = world.getLevel();
+		if (yPos > 8 || xPos < 0 || yPos < 0 || xPos > 98)
+		{
+			return true;
+		}
 		if (checkCollision(tiles[xPos][yPos], ch) || checkCollision(tiles[xPos + 1][yPos], ch)
 				|| checkCollision(tiles[xPos][yPos + 1], ch) || checkCollision(tiles[xPos + 1][yPos + 1], ch))
 		{
