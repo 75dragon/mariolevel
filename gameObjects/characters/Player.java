@@ -12,7 +12,7 @@ import level.World;
 public class Player extends Character
 {
 	int stompLaunchSpeed = -20;
-	int runSpeed = xMovementVel + 10;
+	int runSpeed = 3;
 
 
 	public Player(int xPos, int yPos, BufferedImage img)
@@ -29,15 +29,10 @@ public class Player extends Character
 	public void applyGravity()
 	{
 		yVel += 2;
-		
 	}
 	
-	public void runRight() {
-		setXVel(runSpeed);
-	}
-	
-	public void runLeft() {
-		setXVel(-1*runSpeed);
+	public void run() {
+		setXVel(xMovementVel*runSpeed);
 	}
 	
 	public void stomp(Enemy enemy) {

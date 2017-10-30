@@ -10,14 +10,13 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import characters.Character;
 import characters.Enemy;
 import characters.Player;
 
 public class Displayer extends JPanel
 {
-	World world;
-	JLabel gameOverLabel = new JLabel();
+	private World world;
+	private JLabel gameOverLabel = new JLabel();
 	
 	public Displayer(int x, int y) 
 	{
@@ -58,6 +57,10 @@ public class Displayer extends JPanel
 		
 	}
 	
+	public void drawHUD(Graphics g) {
+		world.hud.draw(g);
+	}
+	
 	/**
 	 * tells the tiles to go draw themselves
 	 * @param g the graphics object, so the tiles can draw themselves
@@ -80,24 +83,11 @@ public class Displayer extends JPanel
 		repaint();
 	}
 	
-	
-//	public void paint( Graphics g )
-//	{
-//		g.setColor(Color.WHITE);
-//		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-//		for ( int i = 0 ; i < world.yDim ; i++ )
-//		{
-//			for ( int j = 0 ; j < world.xDim ; j++)
-//			{
-//				world.level[i][j].drawMe(g);
-//			}
-//		}
-//	}
-	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.translate( 600 - world.player.getX(), 250 - world.player.getY() );
 		drawTiles(g);
 		drawCharacters(g);
+		drawHUD(g);
 	}
 }

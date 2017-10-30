@@ -1,4 +1,4 @@
-package driver;
+package Main;
 
 import characters.Player;
 
@@ -6,10 +6,11 @@ import characters.Collision;
 import control.Keyboard;
 import level.Displayer;
 import level.Frame;
+import level.HUD;
 import level.World;
 
 
-public class Driver
+public class Main
 {
 	Frame frame;
 	Displayer display;
@@ -17,12 +18,14 @@ public class Driver
 	Player player;
 	Keyboard listener;
 	Collision collision;
+	HUD hud;
 	
-	public Driver() {
+	public Main() {
 		frame = new Frame();
 		display = new Displayer(1200,500);
 		collision = new Collision();
-		world = new World(100,10,40, display, collision);
+		hud = new HUD();
+		world = new World(100,10,40, display, collision, hud);
 		listener = new Keyboard(world);
 		frame.addKeyListener(listener);
 		frame.add(display);
@@ -31,6 +34,6 @@ public class Driver
 	}
 	
 	public static void main(String[] args) {
-		Driver d = new Driver();
+		Main d = new Main();
 	}
 }

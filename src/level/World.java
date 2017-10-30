@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,15 +22,16 @@ import characters.RedTurtle;
 import tiles.Tile;
 import characters.Collision;
 
-public class World
+public class World implements EventListener
 {
 	Timer time;
-	private Displayer displayer;
+	Displayer displayer;
+	HUD hud;
 	public Player player;
 	public Enemy goomba1, redTurtle1, goomba2, flyingTurtle1;
 	public Enemy goomba3, goomba4, goomba5, redTurtle2, redTurtle3;
 	Collision collision;
-	private final int delay = 50;
+	private final int delay = 40;
 	Tile[][] level;
 	int xDim;
 	int yDim;
@@ -47,14 +49,18 @@ public class World
 	public ArrayList<Character> charaList;
 
 
-	public World(int x, int y, int tileDimentions, Displayer displayer, Collision collision)
+	public World(int x, int y, int tileDimentions, Displayer displayer, Collision collision,
+			HUD hud)
 	{
+		this.hud = hud;
 		this.displayer = displayer;
 		this.collision = collision;
 		loadImages();
 		initializeCharacters();
 		displayer.setWorld(this);
 		collision.setWorld(this);
+		hud.setWorld(this);
+		hud.startGameTimer();
 		gameStart();
 		time.start();
 		xDim = x;
@@ -104,9 +110,6 @@ public class World
 		goomba5 = new Goomba(450,floor, goombaImage);
 		redTurtle2 = new RedTurtle(600,floor, redTurtleImage);
 		redTurtle3 = new RedTurtle(500,floor, redTurtleImage);
-		
-		
-		
 		
 		goomba2.moveLeft();
 		goomba1.moveRight();
@@ -211,4 +214,7 @@ public class World
 	public ArrayList<Player> getPList() {
 		return pList;
 	}
+	
+	
+	
 }
