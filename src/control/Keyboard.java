@@ -15,9 +15,13 @@ public class Keyboard implements KeyListener
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_SPACE && !world.player.isJumping()) {
+//		if(key == KeyEvent.VK_SPACE && !world.player.isJumping()) {
+//			world.player.setJump(true);
+//			world.player.setYVel(-25);
+//		}
+		if(key == KeyEvent.VK_SPACE) {
 			world.player.setJump(true);
-			world.player.setYVel(-25);;
+			world.player.setYVel(-25);
 		}
 		
 		if(key == KeyEvent.VK_RIGHT) {

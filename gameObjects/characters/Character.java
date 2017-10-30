@@ -108,6 +108,7 @@ public abstract class Character extends GameObject {
 		if (world.collision.checkMapCollision(me, xPos/30, yPos/30))
 		{
 			yPos -= yVel;
+			yVel = 0;
 		}
 		applyGravity();		
 		if(xPos < 0) 

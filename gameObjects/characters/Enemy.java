@@ -23,13 +23,13 @@ public abstract class Enemy extends Character {
 		return isStompable;
 	}
 	
-	public void updatePosition() {
-		xPos += xVel;
-		yPos += yVel;
-		applyGravity();
-		if(xPos <= 0 || xPos >= 1000)
-			changeDirection();
-	}
+//	public void updatePosition() {
+//		xPos += xVel;
+//		yPos += yVel;
+//		applyGravity();
+//		if(xPos <= 0 || xPos >= 1000)
+//			changeDirection();
+//	}
 	
 	public void changeDirection() {
 			xVel *= -1;
