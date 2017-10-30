@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import level.World;
+
 public class FlyingRedTurtle extends Enemy{
 	
 	private Color charaColor = new  Color(255, 0, 0); 
@@ -13,8 +15,8 @@ public class FlyingRedTurtle extends Enemy{
 		super(x,y);
 	}
 	
-	public FlyingRedTurtle(int x, int y, BufferedImage img){
-		super(x,y, img);
+	public FlyingRedTurtle(int x, int y, World wor, BufferedImage img){
+		super(x,y, wor, img);
 		health = 2;
 		jumpVel = 0;
 		isStompable = true;

@@ -19,29 +19,22 @@ public class Keyboard implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-
-		// Store keys pressed into a Collection
-		keysPressed.push(e.getKeyCode());
-
-		while (!keysPressed.isEmpty()) {
-			System.out.println("in");
-			int key = keysPressed.pop();
-
-			if (key == KeyEvent.VK_SPACE && !world.player.isJumping()) {
-				world.player.setJump(true);
-				world.player.setYVel(-25);
-				;
-			}
-
-			if (key == KeyEvent.VK_RIGHT) {
-				world.player.moveRight();
-			}
-
-			if (key == KeyEvent.VK_LEFT) {
-				world.player.moveLeft();
-			}
-
-
+		int key = e.getKeyCode();
+//		if(key == KeyEvent.VK_SPACE && !world.player.isJumping()) {
+//			world.player.setJump(true);
+//			world.player.setYVel(-25);
+//		}
+		if(key == KeyEvent.VK_SPACE) {
+			world.player.setJump(true);
+			world.player.setYVel(-25);
+		}
+		
+		if(key == KeyEvent.VK_RIGHT) {
+			world.player.moveRight();
+		}
+		
+		if(key == KeyEvent.VK_LEFT) {
+			world.player.moveLeft();
 		}
 	}
 

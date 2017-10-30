@@ -1,5 +1,6 @@
 /characters/
 /level/
+<<<<<<< HEAD
 /baseClasses/
 /client/
 /control/
@@ -8,3 +9,6 @@
 /tiles/
 /Main/
 /hud/
+=======
+/control/
+>>>>>>> 2cac627541acec9ca7d357a6cf13fb06541b4b80

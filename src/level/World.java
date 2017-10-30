@@ -30,7 +30,7 @@ public class World implements EventListener
 	public Player player;
 	public Enemy goomba1, redTurtle1, goomba2, flyingTurtle1;
 	public Enemy goomba3, goomba4, goomba5, redTurtle2, redTurtle3;
-	Collision collision;
+	public Collision collision;
 	private final int delay = 40;
 	Tile[][] level;
 	int xDim;
@@ -42,7 +42,6 @@ public class World implements EventListener
 	BufferedImage marioImage, goombaImage, redTurtleImage;
 	
 	
-	//TODO have two seperate lists, one for the char
 	//and another for the player
 	private ArrayList<Enemy> cList;
 	private ArrayList<Player> pList;
@@ -100,16 +99,16 @@ public class World implements EventListener
 		//goomba1.moveRight();
 		//redTurtle1.moveLeft();
 
-		player = new Player(20,20, marioImage);
-		goomba1 = new Goomba(200,floor, goombaImage);
-		goomba2 = new Goomba(400,floor, goombaImage);
-		redTurtle1 = new RedTurtle(500,floor, redTurtleImage);
+		player = new Player(20,20, this, marioImage);
+		goomba1 = new Goomba(200,floor, this, goombaImage);
+		goomba2 = new Goomba(400,floor, this, goombaImage);
+		redTurtle1 = new RedTurtle(500,floor, this, redTurtleImage);
 		
-		goomba3 = new Goomba(1000,floor, goombaImage);
-		goomba4 = new Goomba(900,floor, goombaImage);
-		goomba5 = new Goomba(450,floor, goombaImage);
-		redTurtle2 = new RedTurtle(600,floor, redTurtleImage);
-		redTurtle3 = new RedTurtle(500,floor, redTurtleImage);
+		goomba3 = new Goomba(1000,floor, this, goombaImage);
+		goomba4 = new Goomba(900,floor, this, goombaImage);
+		goomba5 = new Goomba(450,floor, this, goombaImage);
+		redTurtle2 = new RedTurtle(600,floor, this, redTurtleImage);
+		redTurtle3 = new RedTurtle(500,floor, this, redTurtleImage);
 		
 		goomba2.moveLeft();
 		goomba1.moveRight();
@@ -183,7 +182,7 @@ public class World implements EventListener
 				updateCharactersPoisition();
 				collision.checkPlayerEnemyCollision();
 				collision.checkEnemyEnemyCollision();
-				collision.checkMapCollision();
+//				collision.checkMapCollision();
 
 			//	player.checkJump();
 				displayer.repaint();

@@ -1,6 +1,8 @@
 package characters;
 
 import baseClasses.GameObjectID;
+import level.World;
+
 import java.awt.image.BufferedImage;
 
 public abstract class Enemy extends Character {
@@ -13,21 +15,21 @@ public abstract class Enemy extends Character {
 		objectID = GameObjectID.ENEMY;
 	}
 	
-	public Enemy(int x, int y, BufferedImage image) {
-		super(x, y, image);
+	public Enemy(int x, int y, World wor, BufferedImage image) {
+		super(x, y, wor, image);
 		}
 	
 	public boolean isStompable() {
 		return isStompable;
 	}
 	
-	public void updatePosition() {
-		xPos += xVel;
-		yPos += yVel;
-		applyGravity();
-		if(xPos <= 0 || xPos >= 1000)
-			changeDirection();
-	}
+//	public void updatePosition() {
+//		xPos += xVel;
+//		yPos += yVel;
+//		applyGravity();
+//		if(xPos <= 0 || xPos >= 1000)
+//			changeDirection();
+//	}
 	
 	public void changeDirection() {
 			xVel *= -1;

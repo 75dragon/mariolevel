@@ -22,7 +22,7 @@ public abstract class Character extends GameObject {
 	public Character(int xPos, int yPos) {
 	super(xPos,yPos);
 	}			
-	public Character(int x, int y, BufferedImage img) {
+	public Character(int x, int y, World wor, BufferedImage img) {
 		super(x,y);
 		xPos = x;
 		yPos = y;
@@ -31,6 +31,7 @@ public abstract class Character extends GameObject {
 		xVel = 0;
 		yVel = 0;
 		image = img;
+		world = wor;
 		// any class that inherits from Characters must set
 		// health, jumpVel, xMovementVel and size variables
 	}
@@ -98,14 +99,18 @@ public abstract class Character extends GameObject {
 	
 	public void updatePosition() {
 		xPos += xVel;
-		yPos += yVel;
-		if ( yPos > 350 ) //350 is the ground
+		Character me = this;
+		if (world.collision.checkMapCollision(me, xPos/30, yPos/30))
 		{
-			yPos = 350;
+			xPos -= xVel;
+		}
+		yPos += yVel;
+		if (world.collision.checkMapCollision(me, xPos/30, yPos/30))
+		{
+			yPos -= yVel;
 			yVel = 0;
 		}
-		applyGravity();
-		
+		applyGravity();		
 		if(xPos < 0) 
 			xPos = 0;
 		else if(xPos > 3000)
